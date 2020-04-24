@@ -4,66 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f3812471ea925ab47374ad52fac9b1ba",
+    "content-hash": "f4343278fc2337496f0e343c86a4efec",
     "packages": [
         {
-            "name": "srag/activerecordconfig",
-            "version": "v0.19.6",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/studer-raimann/ActiveRecordConfig.git",
-                "reference": "37c29f8f8f7e8972d5f42aabea133bff18388a18"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/studer-raimann/ActiveRecordConfig/zipball/37c29f8f8f7e8972d5f42aabea133bff18388a18",
-                "reference": "37c29f8f8f7e8972d5f42aabea133bff18388a18",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=7.0",
-                "srag/custominputguis": ">=0.1.0",
-                "srag/dic": ">=0.1.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "srag\\ActiveRecordConfig\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "GPL-3.0-only"
-            ],
-            "authors": [
-                {
-                    "name": "studer + raimann ag - Team Custom 1",
-                    "email": "support-custom1@studer-raimann.ch",
-                    "homepage": "https://studer-raimann.ch",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Simple ActiveRecord config for ILIAS plugins",
-            "homepage": "https://github.com/studer-raimann/ActiveRecordConfig",
-            "keywords": [
-                "ILIAS",
-                "activerecord",
-                "config"
-            ],
-            "time": "2020-02-21T09:47:44+00:00"
-        },
-        {
             "name": "srag/custominputguis",
-            "version": "v0.34.4",
+            "version": "v0.34.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/studer-raimann/CustomInputGUIs.git",
-                "reference": "31b52172d13eb2a6f470f779aa22784975dcf348"
+                "reference": "199aac4514002339c545b038e620d75157e881e0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/studer-raimann/CustomInputGUIs/zipball/31b52172d13eb2a6f470f779aa22784975dcf348",
-                "reference": "31b52172d13eb2a6f470f779aa22784975dcf348",
+                "url": "https://api.github.com/repos/studer-raimann/CustomInputGUIs/zipball/199aac4514002339c545b038e620d75157e881e0",
+                "reference": "199aac4514002339c545b038e620d75157e881e0",
                 "shasum": ""
             },
             "require": {
@@ -97,7 +51,7 @@
                 "input",
                 "table"
             ],
-            "time": "2020-04-15T09:40:19+00:00"
+            "time": "2020-04-23T12:36:19+00:00"
         },
         {
             "name": "srag/dic",
@@ -119,7 +73,7 @@
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "srag\\DIC\\": "src/"
+                    "srag\\DIC\\SrLearningProgressReset\\": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -208,7 +162,7 @@
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "srag\\RemovePluginDataConfirm\\": "src/"
+                    "srag\\RemovePluginDataConfirm\\SrLearningProgressReset\\": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",

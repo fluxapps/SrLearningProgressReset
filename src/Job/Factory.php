@@ -5,6 +5,7 @@ namespace srag\Plugins\SrLearningProgressReset\Job;
 use ilCronJob;
 use ilSrLearningProgressResetPlugin;
 use srag\DIC\SrLearningProgressReset\DICTrait;
+use srag\Plugins\SrLearningProgressReset\LearningProgressReset\LearningProgressResetJob;
 use srag\Plugins\SrLearningProgressReset\Utils\SrLearningProgressResetTrait;
 
 /**
@@ -54,7 +55,9 @@ final class Factory
      */
     public function newInstances() : array
     {
-        return [];
+        return [
+            self::srLearningProgressReset()->learningProgressReset()->factory()->newJobInstance()
+        ];
     }
 
 
@@ -66,6 +69,9 @@ final class Factory
     public function newInstanceById(string $job_id) : ?ilCronJob
     {
         switch ($job_id) {
+            case LearningProgressResetJob::CRON_JOB_ID:
+                return self::srLearningProgressReset()->learningProgressReset()->factory()->newJobInstance();
+
             default:
                 return null;
         }

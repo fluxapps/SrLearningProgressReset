@@ -4,8 +4,8 @@ namespace srag\Plugins\SrLearningProgressReset;
 
 use ilSrLearningProgressResetPlugin;
 use srag\DIC\SrLearningProgressReset\DICTrait;
-use srag\Plugins\SrLearningProgressReset\Config\Repository as ConfigRepository;
 use srag\Plugins\SrLearningProgressReset\Job\Repository as JobsRepository;
+use srag\Plugins\SrLearningProgressReset\LearningProgressReset\Repository as LearningProgressResetRepository;
 use srag\Plugins\SrLearningProgressReset\Utils\SrLearningProgressResetTrait;
 
 /**
@@ -51,20 +51,12 @@ final class Repository
 
 
     /**
-     * @return ConfigRepository
-     */
-    public function config() : ConfigRepository
-    {
-        return ConfigRepository::getInstance();
-    }
-
-
-    /**
      *
      */
     public function dropTables() : void
     {
-        $this->config()->dropTables();
+        $this->jobs()->dropTables();
+        $this->learningProgressReset()->dropTables();
     }
 
 
@@ -73,7 +65,8 @@ final class Repository
      */
     public function installTables() : void
     {
-        $this->config()->installTables();
+        $this->jobs()->installTables();
+        $this->learningProgressReset()->installTables();
     }
 
 
@@ -83,5 +76,14 @@ final class Repository
     public function jobs() : JobsRepository
     {
         return JobsRepository::getInstance();
+    }
+
+
+    /**
+     * @return LearningProgressResetRepository
+     */
+    public function learningProgressReset() : LearningProgressResetRepository
+    {
+        return LearningProgressResetRepository::getInstance();
     }
 }

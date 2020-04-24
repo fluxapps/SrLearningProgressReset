@@ -1,6 +1,7 @@
 <?php
 
 use srag\DIC\SrLearningProgressReset\DICTrait;
+use srag\Plugins\SrLearningProgressReset\LearningProgressReset\LearningProgressResetSettingsGUI;
 use srag\Plugins\SrLearningProgressReset\Utils\SrLearningProgressResetTrait;
 
 /**
@@ -15,4 +16,45 @@ class ilSrLearningProgressResetUIHookGUI extends ilUIHookPluginGUI
     use SrLearningProgressResetTrait;
 
     const PLUGIN_CLASS_NAME = ilSrLearningProgressResetPlugin::class;
+    const PAR_TABS = "tabs";
+    const GET_PARAM_REF_ID = "ref_id";
+    const GET_PARAM_TARGET = "target";
+
+
+    /**
+     * @inheritDoc
+     */
+    public function modifyGUI(/*string*/ $a_comp, /*string*/ $a_part, /*array*/ $a_par = []) : void
+    {
+        if ($a_part === self::PAR_TABS) {
+
+            if (self::dic()->ctrl()->getCmdClass() === strtolower(ilObjCourseGUI::class)) {
+
+                LearningProgressResetSettingsGUI::addTabs($this->getRefId());
+            }
+        }
+    }
+
+
+    /**
+     * @return int|null
+     */
+    protected function getRefId() : ?int
+    {
+        $obj_ref_id = filter_input(INPUT_GET, self::GET_PARAM_REF_ID);
+
+        if ($obj_ref_id === null) {
+            $param_target = filter_input(INPUT_GET, self::GET_PARAM_TARGET);
+
+            $obj_ref_id = explode("_", $param_target)[1];
+        }
+
+        $obj_ref_id = intval($obj_ref_id);
+
+        if ($obj_ref_id > 0) {
+            return $obj_ref_id;
+        } else {
+            return null;
+        }
+    }
 }

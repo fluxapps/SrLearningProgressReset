@@ -14,7 +14,6 @@ class ComposerStaticInit26b4253cc8069af7c88ca0755f6cdb80
             'srag\\LibrariesNamespaceChanger\\' => 31,
             'srag\\DIC\\SrLearningProgressReset\\' => 33,
             'srag\\CustomInputGUIs\\SrLearningProgressReset\\' => 45,
-            'srag\\ActiveRecordConfig\\SrLearningProgressReset\\' => 48,
         ),
     );
 
@@ -39,27 +38,11 @@ class ComposerStaticInit26b4253cc8069af7c88ca0755f6cdb80
         array (
             0 => __DIR__ . '/..' . '/srag/custominputguis/src',
         ),
-        'srag\\ActiveRecordConfig\\SrLearningProgressReset\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/srag/activerecordconfig/src',
-        ),
     );
 
     public static $classMap = array (
-        'ilSrLearningProgressResetConfigGUI' => __DIR__ . '/../..' . '/classes/class.ilSrLearningProgressResetConfigGUI.php',
         'ilSrLearningProgressResetPlugin' => __DIR__ . '/../..' . '/classes/class.ilSrLearningProgressResetPlugin.php',
         'ilSrLearningProgressResetUIHookGUI' => __DIR__ . '/../..' . '/classes/class.ilSrLearningProgressResetUIHookGUI.php',
-        'srag\\ActiveRecordConfig\\SrLearningProgressReset\\ActiveRecordConfig' => __DIR__ . '/..' . '/srag/activerecordconfig/src/ActiveRecordConfig.php',
-        'srag\\ActiveRecordConfig\\SrLearningProgressReset\\ActiveRecordConfigFactory' => __DIR__ . '/..' . '/srag/activerecordconfig/src/ActiveRecordConfig.php',
-        'srag\\ActiveRecordConfig\\SrLearningProgressReset\\ActiveRecordConfigFormGUI' => __DIR__ . '/..' . '/srag/activerecordconfig/src/ActiveRecordConfigFormGUI.php',
-        'srag\\ActiveRecordConfig\\SrLearningProgressReset\\ActiveRecordConfigGUI' => __DIR__ . '/..' . '/srag/activerecordconfig/src/ActiveRecordConfigGUI.php',
-        'srag\\ActiveRecordConfig\\SrLearningProgressReset\\ActiveRecordConfigRepository' => __DIR__ . '/..' . '/srag/activerecordconfig/src/ActiveRecordConfig.php',
-        'srag\\ActiveRecordConfig\\SrLearningProgressReset\\ActiveRecordConfigTableGUI' => __DIR__ . '/..' . '/srag/activerecordconfig/src/ActiveRecordConfigTableGUI.php',
-        'srag\\ActiveRecordConfig\\SrLearningProgressReset\\ActiveRecordObjectFormGUI' => __DIR__ . '/..' . '/srag/activerecordconfig/src/ActiveRecordObjectFormGUI.php',
-        'srag\\ActiveRecordConfig\\SrLearningProgressReset\\Config\\AbstractFactory' => __DIR__ . '/..' . '/srag/activerecordconfig/src/Config/AbstractFactory.php',
-        'srag\\ActiveRecordConfig\\SrLearningProgressReset\\Config\\AbstractRepository' => __DIR__ . '/..' . '/srag/activerecordconfig/src/Config/AbstractRepository.php',
-        'srag\\ActiveRecordConfig\\SrLearningProgressReset\\Config\\Config' => __DIR__ . '/..' . '/srag/activerecordconfig/src/Config/Config.php',
-        'srag\\ActiveRecordConfig\\SrLearningProgressReset\\Exception\\ActiveRecordConfigException' => __DIR__ . '/..' . '/srag/activerecordconfig/src/Exception/ActiveRecordConfigException.php',
         'srag\\CustomInputGUIs\\SrLearningProgressReset\\CheckboxInputGUI\\AjaxCheckbox' => __DIR__ . '/..' . '/srag/custominputguis/src/AjaxCheckbox/AjaxCheckbox.php',
         'srag\\CustomInputGUIs\\SrLearningProgressReset\\CheckboxInputGUI\\CheckboxInputGUI' => __DIR__ . '/..' . '/srag/custominputguis/src/CheckboxInputGUI/CheckboxInputGUI.php',
         'srag\\CustomInputGUIs\\SrLearningProgressReset\\CustomInputGUIs' => __DIR__ . '/..' . '/srag/custominputguis/src/CustomInputGUIs.php',
@@ -160,12 +143,14 @@ class ComposerStaticInit26b4253cc8069af7c88ca0755f6cdb80
         'srag\\LibrariesNamespaceChanger\\PHP72Backport' => __DIR__ . '/..' . '/srag/librariesnamespacechanger/src/PHP72Backport.php',
         'srag\\LibrariesNamespaceChanger\\PHP7Backport' => __DIR__ . '/..' . '/srag/librariesnamespacechanger/src/PHP7Backport.php',
         'srag\\LibrariesNamespaceChanger\\RemovePHP72Backport' => __DIR__ . '/..' . '/srag/librariesnamespacechanger/src/RemovePHP72Backport.php',
-        'srag\\Plugins\\SrLearningProgressReset\\Config\\ConfigCtrl' => __DIR__ . '/../..' . '/src/Config/class.ConfigCtrl.php',
-        'srag\\Plugins\\SrLearningProgressReset\\Config\\Factory' => __DIR__ . '/../..' . '/src/Config/Factory.php',
-        'srag\\Plugins\\SrLearningProgressReset\\Config\\Form\\FormBuilder' => __DIR__ . '/../..' . '/src/Config/Form/FormBuilder.php',
-        'srag\\Plugins\\SrLearningProgressReset\\Config\\Repository' => __DIR__ . '/../..' . '/src/Config/Repository.php',
         'srag\\Plugins\\SrLearningProgressReset\\Job\\Factory' => __DIR__ . '/../..' . '/src/Job/Factory.php',
         'srag\\Plugins\\SrLearningProgressReset\\Job\\Repository' => __DIR__ . '/../..' . '/src/Job/Repository.php',
+        'srag\\Plugins\\SrLearningProgressReset\\LearningProgressReset\\Factory' => __DIR__ . '/../..' . '/src/LearningProgressReset/Factory.php',
+        'srag\\Plugins\\SrLearningProgressReset\\LearningProgressReset\\Form\\FormBuilder' => __DIR__ . '/../..' . '/src/LearningProgressReset/Form/FormBuilder.php',
+        'srag\\Plugins\\SrLearningProgressReset\\LearningProgressReset\\LearningProgressResetJob' => __DIR__ . '/../..' . '/src/LearningProgressReset/LearningProgressResetJob.php',
+        'srag\\Plugins\\SrLearningProgressReset\\LearningProgressReset\\LearningProgressResetSettings' => __DIR__ . '/../..' . '/src/LearningProgressReset/LearningProgressResetSettings.php',
+        'srag\\Plugins\\SrLearningProgressReset\\LearningProgressReset\\LearningProgressResetSettingsGUI' => __DIR__ . '/../..' . '/src/LearningProgressReset/class.LearningProgressResetSettingsGUI.php',
+        'srag\\Plugins\\SrLearningProgressReset\\LearningProgressReset\\Repository' => __DIR__ . '/../..' . '/src/LearningProgressReset/Repository.php',
         'srag\\Plugins\\SrLearningProgressReset\\Repository' => __DIR__ . '/../..' . '/src/Repository.php',
         'srag\\Plugins\\SrLearningProgressReset\\Utils\\SrLearningProgressResetTrait' => __DIR__ . '/../..' . '/src/Utils/SrLearningProgressResetTrait.php',
         'srag\\RemovePluginDataConfirm\\SrLearningProgressReset\\BasePluginUninstallTrait' => __DIR__ . '/..' . '/srag/removeplugindataconfirm/src/BasePluginUninstallTrait.php',

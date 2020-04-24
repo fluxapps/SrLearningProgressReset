@@ -1,3 +1,8 @@
-config_configuration#:#Configuration
-config_configuration_saved#:#Configuration saved
-config_save#:#Save
+learning_progress_reset_settings_days#:#Days
+learning_progress_reset_settings_days_info#:#When older than
+learning_progress_reset_settings_job_result#:#Objects : %1$s\nUsers : %2$s\nReset : %3$s
+learning_progress_reset_settings_save#:#Save
+learning_progress_reset_settings_saved#:#Saved
+learning_progress_reset_settings_settings#:#Auto reset learning progress
+learning_progress_reset_settings_udf_field#:#UDF field
+learning_progress_reset_settings_udf_field_info#:#Based date (%s formatted) in UDF field
