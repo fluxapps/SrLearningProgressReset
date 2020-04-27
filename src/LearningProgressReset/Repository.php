@@ -77,8 +77,9 @@ SELECT ' . LearningProgressResetSettings::TABLE_NAME . '.obj_id
 FROM object_data
 INNER JOIN object_reference ON object_data.obj_id=object_reference.obj_id
 INNER JOIN ' . LearningProgressResetSettings::TABLE_NAME . ' ON object_data.obj_id=' . LearningProgressResetSettings::TABLE_NAME . '.obj_id
-WHERE type=%s
-AND object_reference.deleted IS NULL', [ilDBConstants::T_TEXT], ["crs"]);
+WHERE enabled=%s
+AND object_reference.deleted IS NULL
+AND ' . self::dic()->database()->in("type", LearningProgressResetSettings::OBJECT_TYPES, false, ilDBConstants::T_TEXT), [ilDBConstants::T_INTEGER], [true]);
 
         $obj_ids = array_map(function (array $object) : int {
             return $object["obj_id"];
@@ -88,7 +89,7 @@ AND object_reference.deleted IS NULL', [ilDBConstants::T_TEXT], ["crs"]);
             return [];
         }
 
-        return LearningProgressResetSettings::where("obj_id", $obj_ids)->get();
+        return LearningProgressResetSettings::where(["obj_id" => $obj_ids])->get();
     }
 
 
@@ -125,7 +126,10 @@ AND object_reference.deleted IS NULL', [ilDBConstants::T_TEXT], ["crs"]);
      */
     public function hasAccess(int $user_id, int $obj_ref_id) : bool
     {
-        return self::dic()->access()->checkAccessOfUser($user_id, "write", "", $obj_ref_id);
+        return (in_array(self::dic()->objDataCache()->lookupType(self::dic()->objDataCache()->lookupObjId($obj_ref_id)), LearningProgressResetSettings::OBJECT_TYPES)
+            && self::dic()
+                ->access()
+                ->checkAccessOfUser($user_id, "write", "", $obj_ref_id));
     }
 
 

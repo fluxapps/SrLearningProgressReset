@@ -98,7 +98,7 @@ class LearningProgressResetSettingsGUI
 
             self::dic()
                 ->tabs()
-                ->addTab(self::TAB_SETTINGS, self::plugin()->translate("settings", self::LANG_MODULE),
+                ->addSubTab(self::TAB_SETTINGS, self::plugin()->translate("settings", self::LANG_MODULE),
                     self::dic()->ctrl()->getLinkTargetByClass([ilUIPluginRouterGUI::class, self::class], self::CMD_EDIT_SETTINGS));
         }
     }

@@ -2,9 +2,9 @@
 
 namespace srag\Plugins\SrLearningProgressReset\LearningProgressReset;
 
+use DateTime;
 use ilCronJob;
 use ilCronJobResult;
-use ilDBConstants;
 use ilLPStatus;
 use ilObjUser;
 use ilSrLearningProgressResetPlugin;
@@ -26,6 +26,11 @@ class LearningProgressResetJob extends ilCronJob
 
     const CRON_JOB_ID = ilSrLearningProgressResetPlugin::PLUGIN_ID;
     const PLUGIN_CLASS_NAME = ilSrLearningProgressResetPlugin::class;
+    const LANG_MODULE = "learning_progress_reset_job";
+    /**
+     * @var ilObjUser[]
+     */
+    protected $user_instance_cache = [];
 
 
     /**
@@ -60,7 +65,7 @@ class LearningProgressResetJob extends ilCronJob
      */
     public function getDescription() : string
     {
-        return "";
+        return self::plugin()->translate("description", self::LANG_MODULE);
     }
 
 
@@ -115,19 +120,27 @@ class LearningProgressResetJob extends ilCronJob
         $count_reset = 0;
 
         foreach ($all_learning_progress_reset_settings as $learning_progress_reset_settings) {
-            foreach ($learning_progress_reset_settings->getObject()->getMembersObject()->getMembers() as $user_id) {
+            foreach (
+                array_unique(array_merge($learning_progress_reset_settings->getObject()->getMembersObject()->getMembers(),
+                    $learning_progress_reset_settings->getObject()->getMembersObject()->getTutors(), $learning_progress_reset_settings->getObject()->getMembersObject()->getAdmins())) as $user_id
+            ) {
                 $count_users++;
 
-                $user = new ilObjUser($user_id);
+                $user = $this->getUserInstance($user_id);
 
                 $udf_values = $user->getUserDefinedData();
 
-                $field_id = $this->getUserDefinedFieldID($learning_progress_reset_settings->getUdfField());
-                if (empty($field_id) || empty($udf_value_date = strtotime(strval($udf_values[($field_id = "f_" . $field_id)])))) {
+                if (empty($learning_progress_reset_settings->getUdfField())
+                    || empty($udf_value_date = strval($udf_values["f_" . ($learning_progress_reset_settings->getUdfField())]))
+                    || empty($udf_value_date
+                        = DateTime::createFromFormat(LearningProgressResetSettings::DATE_FORMAT, $udf_value_date))
+                ) {
                     continue;
                 }
 
-                if (intval(($time - $udf_value_date) / (60 * 60 * 24)) !== $learning_progress_reset_settings->getDays()) {
+                $udf_value_date->setTime(0, 0, 0, 0);
+
+                if (($diff = intval(($time - $udf_value_date->getTimestamp()) / (60 * 60 * 24))) !== $learning_progress_reset_settings->getDays()) {
                     continue;
                 }
 
@@ -139,7 +152,7 @@ class LearningProgressResetJob extends ilCronJob
 
         $result->setStatus(ilCronJobResult::STATUS_OK);
 
-        $result->setMessage(nl2br(self::plugin()->translate("job_result", LearningProgressResetSettingsGUI::LANG_MODULE, [
+        $result->setMessage(nl2br(self::plugin()->translate("result", self::LANG_MODULE, [
             count($all_learning_progress_reset_settings),
             $count_users,
             $count_reset
@@ -150,18 +163,16 @@ class LearningProgressResetJob extends ilCronJob
 
 
     /**
-     * @param string $field_name
+     * @param int $user_id
      *
-     * @return int|null
+     * @return ilObjUser
      */
-    protected function getUserDefinedFieldID(string $field_name) : ?int
+    protected function getUserInstance(int $user_id) : ilObjUser
     {
-        $result = self::dic()->database()->queryF('SELECT field_id FROM udf_definition WHERE field_name=%s', [ilDBConstants::T_TEXT], [$field_name]);
-
-        if (($row = $result->fetchAssoc()) !== false) {
-            return intval($row["field_id"]);
-        } else {
-            return null;
+        if (!isset($this->user_instance_cache[$user_id])) {
+            $this->user_instance_cache[$user_id] = new ilObjUser($user_id);
         }
+
+        return $this->user_instance_cache[$user_id];
     }
 }

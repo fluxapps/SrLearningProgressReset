@@ -1,6 +1,8 @@
+learning_progress_reset_job_description#:#Resets the learning progress of users who have reached the days using the UDF field
+learning_progress_reset_job_result#:#Objects : %1$s\nUsers : %2$s\nReset : %3$s
 learning_progress_reset_settings_days#:#Days
 learning_progress_reset_settings_days_info#:#When older than
-learning_progress_reset_settings_job_result#:#Objects : %1$s\nUsers : %2$s\nReset : %3$s
+learning_progress_reset_settings_enabled#:#Enabled
 learning_progress_reset_settings_save#:#Save
 learning_progress_reset_settings_saved#:#Saved
 learning_progress_reset_settings_settings#:#Auto reset learning progress

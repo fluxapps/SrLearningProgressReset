@@ -16,7 +16,7 @@ class ilSrLearningProgressResetUIHookGUI extends ilUIHookPluginGUI
     use SrLearningProgressResetTrait;
 
     const PLUGIN_CLASS_NAME = ilSrLearningProgressResetPlugin::class;
-    const PAR_TABS = "tabs";
+    const PAR_SUB_TABS = "sub_tabs";
     const GET_PARAM_REF_ID = "ref_id";
     const GET_PARAM_TARGET = "target";
 
@@ -26,9 +26,9 @@ class ilSrLearningProgressResetUIHookGUI extends ilUIHookPluginGUI
      */
     public function modifyGUI(/*string*/ $a_comp, /*string*/ $a_part, /*array*/ $a_par = []) : void
     {
-        if ($a_part === self::PAR_TABS) {
+        if ($a_part === self::PAR_SUB_TABS) {
 
-            if (self::dic()->ctrl()->getCmdClass() === strtolower(ilObjCourseGUI::class)) {
+            if (self::dic()->ctrl()->getCmdClass() === strtolower(ilLPListOfObjectsGUI::class) || self::dic()->ctrl()->getCmdClass() === strtolower(ilLPListOfSettingsGUI::class)) {
 
                 LearningProgressResetSettingsGUI::addTabs($this->getRefId());
             }

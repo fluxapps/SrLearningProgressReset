@@ -25,6 +25,8 @@ class LearningProgressResetSettings extends ActiveRecord
 
     const TABLE_NAME = ilSrLearningProgressResetPlugin::PLUGIN_ID . "_obj_set";
     const PLUGIN_CLASS_NAME = ilSrLearningProgressResetPlugin::class;
+    const DATE_FORMAT = "Y-m-d";
+    const OBJECT_TYPES = ["crs"];
 
 
     /**
@@ -48,6 +50,15 @@ class LearningProgressResetSettings extends ActiveRecord
 
 
     /**
+     * @var bool
+     *
+     * @con_has_field    true
+     * @con_fieldtype    integer
+     * @con_length       1
+     * @con_is_notnull   true
+     */
+    protected $enabled = false;
+    /**
      * @var int
      *
      * @con_has_field    true
@@ -67,13 +78,13 @@ class LearningProgressResetSettings extends ActiveRecord
      */
     protected $days = 0;
     /**
-     * @var string
+     * @var int
      *
      * @con_has_field    true
      * @con_fieldtype    text
      * @con_is_notnull   true
      */
-    protected $udf_field = "";
+    protected $udf_field = 0;
     /**
      * @var ilObject|null
      */
@@ -93,6 +104,38 @@ class LearningProgressResetSettings extends ActiveRecord
 
 
     /**
+     * @inheritDoc
+     */
+    public function sleep(/*string*/ $field_name)
+    {
+        $field_value = $this->{$field_name};
+
+        switch ($field_name) {
+            case "enabled":
+                return ($field_value ? 1 : 0);
+
+            default:
+                return parent::sleep($field_name);
+        }
+    }
+
+
+    /**
+     * @inheritDoc
+     */
+    public function wakeUp(/*string*/ $field_name, $field_value)
+    {
+        switch ($field_name) {
+            case "enabled":
+                return boolval($field_value);
+
+            default:
+                return parent::wakeUp($field_name, $field_value);
+        }
+    }
+
+
+    /**
      * @return ilObject
      */
     public function getObject() : ilObject
@@ -102,6 +145,24 @@ class LearningProgressResetSettings extends ActiveRecord
         }
 
         return $this->object;
+    }
+
+
+    /**
+     * @return bool
+     */
+    public function isEnabled() : bool
+    {
+        return $this->enabled;
+    }
+
+
+    /**
+     * @param bool $enabled
+     */
+    public function setEnabled(bool $enabled) : void
+    {
+        $this->enabled = $enabled;
     }
 
 
@@ -142,18 +203,18 @@ class LearningProgressResetSettings extends ActiveRecord
 
 
     /**
-     * @return string
+     * @return int
      */
-    public function getUdfField() : string
+    public function getUdfField() : int
     {
         return $this->udf_field;
     }
 
 
     /**
-     * @param string $udf_field
+     * @param int $udf_field
      */
-    public function setUdfField(string $udf_field) : void
+    public function setUdfField(int $udf_field) : void
     {
         $this->udf_field = $udf_field;
     }

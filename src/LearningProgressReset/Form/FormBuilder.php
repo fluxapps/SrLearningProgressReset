@@ -3,8 +3,8 @@
 namespace srag\Plugins\SrLearningProgressReset\LearningProgressReset\Form;
 
 use ilSrLearningProgressResetPlugin;
+use ilUserDefinedFields;
 use srag\CustomInputGUIs\SrLearningProgressReset\FormBuilder\AbstractFormBuilder;
-use srag\CustomInputGUIs\SrLearningProgressReset\PropertyFormGUI\Items\Items;
 use srag\Plugins\SrLearningProgressReset\LearningProgressReset\LearningProgressResetSettings;
 use srag\Plugins\SrLearningProgressReset\LearningProgressReset\LearningProgressResetSettingsGUI;
 use srag\Plugins\SrLearningProgressReset\Utils\SrLearningProgressResetTrait;
@@ -60,11 +60,17 @@ class FormBuilder extends AbstractFormBuilder
      */
     protected function getData() : array
     {
-        $data = [];
-
-        foreach (array_keys($this->getFields()) as $key) {
-            $data[$key] = Items::getter($this->learning_progress_reset_settings, $key);
-        }
+        $data = [
+            "enabled" => [
+                "value"        => $this->learning_progress_reset_settings->isEnabled(),
+                "group_values" => [
+                    "dependant_group" => [
+                        "days"      => $this->learning_progress_reset_settings->getDays(),
+                        "udf_field" => $this->learning_progress_reset_settings->getUdfField()
+                    ]
+                ]
+            ]
+        ];
 
         return $data;
     }
@@ -76,10 +82,20 @@ class FormBuilder extends AbstractFormBuilder
     protected function getFields() : array
     {
         $fields = [
-            "days"      => self::dic()->ui()->factory()->input()->field()->numeric(self::plugin()->translate("days", LearningProgressResetSettingsGUI::LANG_MODULE),
-                self::plugin()->translate("days_info", LearningProgressResetSettingsGUI::LANG_MODULE))->withRequired(true),
-            "udf_field" => self::dic()->ui()->factory()->input()->field()->text(self::plugin()->translate("udf_field", LearningProgressResetSettingsGUI::LANG_MODULE),
-                self::plugin()->translate("udf_field_info", LearningProgressResetSettingsGUI::LANG_MODULE, ["YYYY-MM-DD"]))->withRequired(true)
+            "enabled" => self::dic()->ui()->factory()->input()->field()->checkbox(self::plugin()->translate("enabled", LearningProgressResetSettingsGUI::LANG_MODULE))->withDependantGroup(self::dic()
+                ->ui()
+                ->factory()
+                ->input()
+                ->field()
+                ->dependantGroup([
+                    "days"      => self::dic()->ui()->factory()->input()->field()->numeric(self::plugin()->translate("days", LearningProgressResetSettingsGUI::LANG_MODULE),
+                        self::plugin()->translate("days_info", LearningProgressResetSettingsGUI::LANG_MODULE))->withRequired(true),
+                    "udf_field" => self::dic()->ui()->factory()->input()->field()->select(self::plugin()->translate("udf_field", LearningProgressResetSettingsGUI::LANG_MODULE),
+                        [0 => ""] + array_map(function (array $field) : string {
+                            return $field["field_name"];
+                        }, ilUserDefinedFields::_getInstance()->getDefinitions()),
+                        self::plugin()->translate("udf_field_info", LearningProgressResetSettingsGUI::LANG_MODULE, [LearningProgressResetSettings::DATE_FORMAT]))->withRequired(true)
+                ])),
         ];
 
         return $fields;
@@ -100,9 +116,11 @@ class FormBuilder extends AbstractFormBuilder
      */
     protected function storeData(array $data) : void
     {
-        foreach (array_keys($this->getFields()) as $key) {
-            Items::setter($this->learning_progress_reset_settings, $key, $data[$key]);
-        }
+        $this->learning_progress_reset_settings->setEnabled(boolval($data["enabled"]["value"]));
+        $this->learning_progress_reset_settings->setDays(intval(($this->learning_progress_reset_settings->isEnabled() ? $data["enabled"]["group_values"]
+            : $data["enabled"])["dependant_group"]["days"]));
+        $this->learning_progress_reset_settings->setUdfField(intval(($this->learning_progress_reset_settings->isEnabled() ? $data["enabled"]["group_values"]
+            : $data["enabled"])["dependant_group"]["udf_field"]));
 
         self::srLearningProgressReset()->learningProgressReset()->storeLearningProgressResetSettings($this->learning_progress_reset_settings);
     }
