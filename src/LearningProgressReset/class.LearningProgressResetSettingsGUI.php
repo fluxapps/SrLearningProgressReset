@@ -2,7 +2,9 @@
 
 namespace srag\Plugins\SrLearningProgressReset\LearningProgressReset;
 
-use ilLink;
+use ilLearningProgressGUI;
+use ilObjectGUIFactory;
+use ilRepositoryGUI;
 use ilSrLearningProgressResetPlugin;
 use ilUIPluginRouterGUI;
 use ilUtil;
@@ -126,7 +128,15 @@ class LearningProgressResetSettingsGUI
      */
     protected function back() : void
     {
-        self::dic()->ctrl()->redirectToURL(ilLink::_getLink($this->obj_ref_id));
+        self::dic()->ctrl()->saveParameterByClass(ilRepositoryGUI::class, self::GET_PARAM_REF_ID);
+
+        self::dic()->ctrl()->redirectToURL(self::dic()->ctrl()
+            ->getLinkTargetByClass([
+                ilRepositoryGUI::class,
+                get_class((new ilObjectGUIFactory())->getInstanceByRefId($this->obj_ref_id)),
+                ilLearningProgressGUI::class
+            ], "", "", false, false)
+        );
     }
 
 
