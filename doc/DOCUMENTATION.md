@@ -1,1 +1,1 @@
-## SrLearningProgressReset Documentation
+# SrLearningProgressReset ILIAS Plugin Documentation
