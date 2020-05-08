@@ -8,7 +8,7 @@ See in [doc/DOCUMENTATION.md](./doc/DOCUMENTATION.md)
 
 ## Installation
 
-### Install SrLearningProgressReset-Plugin
+### Install SrLearningProgressReset Plugin
 Start at your ILIAS root directory
 ```bash
 mkdir -p Customizing/global/plugins/Services/UIComponent/UserInterfaceHook
@@ -17,7 +17,7 @@ git clone https://github.com/studer-raimann/SrLearningProgressReset.git SrLearni
 ```
 Update and activate the plugin in the ILIAS Plugin Administration
 
-You need also to install [SrLearningProgressResetCron](https://github.com/studer-raimann/SrLearningProgressResetCron).
+You need also to install [SrLearningProgressResetCron Plugin](https://github.com/studer-raimann/SrLearningProgressResetCron).
 
 ### Requirements
 * ILIAS 5.4
