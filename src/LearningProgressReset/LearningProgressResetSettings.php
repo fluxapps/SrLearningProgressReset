@@ -160,7 +160,7 @@ class LearningProgressResetSettings extends ActiveRecord
     /**
      * @param bool $enabled
      */
-    public function setEnabled(bool $enabled) : void
+    public function setEnabled(bool $enabled)/* : void*/
     {
         $this->enabled = $enabled;
     }
@@ -178,7 +178,7 @@ class LearningProgressResetSettings extends ActiveRecord
     /**
      * @param int $obj_id
      */
-    public function setObjId(int $obj_id) : void
+    public function setObjId(int $obj_id)/* : void*/
     {
         $this->obj_id = $obj_id;
     }
@@ -196,7 +196,7 @@ class LearningProgressResetSettings extends ActiveRecord
     /**
      * @param int $days
      */
-    public function setDays(int $days) : void
+    public function setDays(int $days)/* : void*/
     {
         $this->days = $days;
     }
@@ -214,7 +214,7 @@ class LearningProgressResetSettings extends ActiveRecord
     /**
      * @param int $udf_field
      */
-    public function setUdfField(int $udf_field) : void
+    public function setUdfField(int $udf_field)/* : void*/
     {
         $this->udf_field = $udf_field;
     }

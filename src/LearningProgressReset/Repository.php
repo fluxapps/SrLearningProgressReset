@@ -52,7 +52,7 @@ final class Repository
     /**
      * @internal
      */
-    public function dropTables() : void
+    public function dropTables()/* : void*/
     {
         self::dic()->database()->dropTable(LearningProgressResetSettings::TABLE_NAME, false);
     }
@@ -136,7 +136,7 @@ AND ' . self::dic()->database()->in("type", LearningProgressResetSettings::OBJEC
     /**
      * @internal
      */
-    public function installTables() : void
+    public function installTables()/* : void*/
     {
         LearningProgressResetSettings::updateDB();
     }
@@ -145,7 +145,7 @@ AND ' . self::dic()->database()->in("type", LearningProgressResetSettings::OBJEC
     /**
      * @param LearningProgressResetSettings $learning_progress_reset_settings
      */
-    public function storeLearningProgressResetSettings(LearningProgressResetSettings $learning_progress_reset_settings) : void
+    public function storeLearningProgressResetSettings(LearningProgressResetSettings $learning_progress_reset_settings)/* : void*/
     {
         $learning_progress_reset_settings->store();
     }

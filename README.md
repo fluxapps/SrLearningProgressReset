@@ -21,7 +21,7 @@ You need also to install [SrLearningProgressResetCron](https://github.com/studer
 
 ## Requirements
 * ILIAS 5.4
-* PHP >=7.2
+* PHP >=7.0
 
 ## Adjustment suggestions
 * External users can report suggestions and bugs at https://plugins.studer-raimann.ch/goto.php?target=uihk_srsu_PLPR

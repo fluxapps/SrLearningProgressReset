@@ -114,7 +114,7 @@ class FormBuilder extends AbstractFormBuilder
     /**
      * @inheritDoc
      */
-    protected function storeData(array $data) : void
+    protected function storeData(array $data)/* : void*/
     {
         $this->learning_progress_reset_settings->setEnabled(boolval($data["enabled"]["value"]));
         $this->learning_progress_reset_settings->setDays(intval(($this->learning_progress_reset_settings->isEnabled() ? $data["enabled"]["group_values"]
