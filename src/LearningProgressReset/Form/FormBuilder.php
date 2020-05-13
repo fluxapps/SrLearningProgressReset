@@ -90,17 +90,31 @@ class FormBuilder extends AbstractFormBuilder
      */
     protected function getFields() : array
     {
-        $fields = [
-            "enabled" => self::dic()->ui()->factory()->input()->field()->optionalGroup([
-                "days"      => self::dic()->ui()->factory()->input()->field()->numeric(self::plugin()->translate("days", LearningProgressResetSettingsGUI::LANG_MODULE),
-                    self::plugin()->translate("days_info", LearningProgressResetSettingsGUI::LANG_MODULE))->withRequired(true),
-                "udf_field" => self::dic()->ui()->factory()->input()->field()->select(self::plugin()->translate("udf_field", LearningProgressResetSettingsGUI::LANG_MODULE),
-                    [0 => ""] + array_map(function (array $field) : string {
-                        return $field["field_name"];
-                    }, ilUserDefinedFields::_getInstance()->getDefinitions()),
-                    self::plugin()->translate("udf_field_info", LearningProgressResetSettingsGUI::LANG_MODULE, [LearningProgressResetSettings::DATE_FORMAT]))->withRequired(true)
-            ], self::plugin()->translate("enabled", LearningProgressResetSettingsGUI::LANG_MODULE)),
+        $enabled_fields = [
+            "days"      => self::dic()->ui()->factory()->input()->field()->numeric(self::plugin()->translate("days", LearningProgressResetSettingsGUI::LANG_MODULE),
+                self::plugin()->translate("days_info", LearningProgressResetSettingsGUI::LANG_MODULE))->withRequired(true),
+            "udf_field" => self::dic()->ui()->factory()->input()->field()->select(self::plugin()->translate("udf_field", LearningProgressResetSettingsGUI::LANG_MODULE),
+                [0 => ""] + array_map(function (array $field) : string {
+                    return $field["field_name"];
+                }, ilUserDefinedFields::_getInstance()->getDefinitions()),
+                self::plugin()->translate("udf_field_info", LearningProgressResetSettingsGUI::LANG_MODULE, [LearningProgressResetSettings::DATE_FORMAT]))->withRequired(true)
         ];
+
+        if (self::version()->is6()) {
+            $fields = [
+                "enabled" => self::dic()->ui()->factory()->input()->field()->optionalGroup($enabled_fields, self::plugin()->translate("enabled", LearningProgressResetSettingsGUI::LANG_MODULE))
+            ];
+        } else {
+            $fields = [
+                "enabled" => self::dic()
+                    ->ui()
+                    ->factory()
+                    ->input()
+                    ->field()
+                    ->checkbox(self::plugin()->translate("enabled", LearningProgressResetSettingsGUI::LANG_MODULE))
+                    ->withDependantGroup(self::dic()->ui()->factory()->input()->field()->dependantGroup($enabled_fields))
+            ];
+        }
 
         return $fields;
     }
