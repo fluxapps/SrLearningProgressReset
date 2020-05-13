@@ -60,26 +60,17 @@ class FormBuilder extends AbstractFormBuilder
      */
     protected function getData() : array
     {
-        if (self::version()->is6()) {
-            $data = [
-                "enabled" => ($this->learning_progress_reset_settings->isEnabled() ? [
-                    "days"      => $this->learning_progress_reset_settings->getDays(),
-                    "udf_field" => $this->learning_progress_reset_settings->getUdfField()
-                ] : null)
-            ];
-        } else {
-            $data = [
-                "enabled" => [
-                    "value"        => $this->learning_progress_reset_settings->isEnabled(),
-                    "group_values" => [
-                        "dependant_group" => [
-                            "days"      => $this->learning_progress_reset_settings->getDays(),
-                            "udf_field" => $this->learning_progress_reset_settings->getUdfField()
-                        ]
+        $data = [
+            "enabled" => [
+                "value"        => $this->learning_progress_reset_settings->isEnabled(),
+                "group_values" => [
+                    "dependant_group" => [
+                        "days"      => $this->learning_progress_reset_settings->getDays(),
+                        "udf_field" => $this->learning_progress_reset_settings->getUdfField()
                     ]
                 ]
-            ];
-        }
+            ]
+        ];
 
         return $data;
     }
