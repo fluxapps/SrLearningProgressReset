@@ -12,8 +12,8 @@ class ComposerStaticInit26b4253cc8069af7c88ca0755f6cdb80
             'srag\\RemovePluginDataConfirm\\SrLearningProgressReset\\' => 53,
             'srag\\Plugins\\SrLearningProgressReset\\' => 37,
             'srag\\LibrariesNamespaceChanger\\' => 31,
-            'srag\\DIC\\SrLearningProgressReset\\' => 33,
-            'srag\\CustomInputGUIs\\' => 21,
+            'srag\\DIC\\' => 9,
+            'srag\\CustomInputGUIs\\SrLearningProgressReset\\' => 45,
         ),
     );
 
@@ -30,11 +30,11 @@ class ComposerStaticInit26b4253cc8069af7c88ca0755f6cdb80
         array (
             0 => __DIR__ . '/..' . '/srag/librariesnamespacechanger/src',
         ),
-        'srag\\DIC\\SrLearningProgressReset\\' => 
+        'srag\\DIC\\' => 
         array (
             0 => __DIR__ . '/..' . '/srag/dic/src',
         ),
-        'srag\\CustomInputGUIs\\' => 
+        'srag\\CustomInputGUIs\\SrLearningProgressReset\\' => 
         array (
             0 => __DIR__ . '/..' . '/srag/custominputguis/src',
         ),
