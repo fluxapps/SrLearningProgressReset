@@ -1,5 +1,6 @@
 learning_progress_reset_job_description#:#Setzt den Lernfortschritt von Benutzer zurück, die die Tage anhand des UDF-Felds erreicht haben
 learning_progress_reset_job_result#:#Objekte : %1$s\nBenutzer : %2$s\nZurückgesetzt : %3$s
+learning_progress_reset_job_title#:#Lernfortschritt zurücksetzen
 learning_progress_reset_settings_days#:#Tage
 learning_progress_reset_settings_days_info#:#Wenn älter als
 learning_progress_reset_settings_enabled#:#Aktiviert

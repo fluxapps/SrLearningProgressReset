@@ -56,7 +56,7 @@ class LearningProgressResetJob extends ilCronJob
      */
     public function getTitle() : string
     {
-        return ilSrLearningProgressResetPlugin::PLUGIN_NAME;
+        return ilSrLearningProgressResetPlugin::PLUGIN_NAME . ": " . self::plugin()->translate("title", self::LANG_MODULE);
     }
 
 

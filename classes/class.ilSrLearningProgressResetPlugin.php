@@ -2,6 +2,8 @@
 
 require_once __DIR__ . "/../vendor/autoload.php";
 
+use ILIAS\DI\Container;
+use srag\CustomInputGUIs\SrLearningProgressReset\Loader\CustomInputGUIsLoaderDetector;
 use srag\Plugins\SrLearningProgressReset\Utils\SrLearningProgressResetTrait;
 use srag\RemovePluginDataConfirm\SrLearningProgressReset\PluginUninstallTrait;
 
@@ -73,5 +75,14 @@ class ilSrLearningProgressResetPlugin extends ilUserInterfaceHookPlugin
     protected function deleteData()/* : void*/
     {
         self::srLearningProgressReset()->dropTables();
+    }
+
+
+    /**
+     * @inheritDoc
+     */
+    public function exchangeUIRendererAfterInitialization(Container $dic) : Closure
+    {
+        return CustomInputGUIsLoaderDetector::exchangeUIRendererAfterInitialization();
     }
 }

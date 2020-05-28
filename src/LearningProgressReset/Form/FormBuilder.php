@@ -81,22 +81,31 @@ class FormBuilder extends AbstractFormBuilder
      */
     protected function getFields() : array
     {
-        $fields = [
-            "enabled" => self::dic()->ui()->factory()->input()->field()->checkbox(self::plugin()->translate("enabled", LearningProgressResetSettingsGUI::LANG_MODULE))->withDependantGroup(self::dic()
-                ->ui()
-                ->factory()
-                ->input()
-                ->field()
-                ->dependantGroup([
-                    "days"      => self::dic()->ui()->factory()->input()->field()->numeric(self::plugin()->translate("days", LearningProgressResetSettingsGUI::LANG_MODULE),
-                        self::plugin()->translate("days_info", LearningProgressResetSettingsGUI::LANG_MODULE))->withRequired(true),
-                    "udf_field" => self::dic()->ui()->factory()->input()->field()->select(self::plugin()->translate("udf_field", LearningProgressResetSettingsGUI::LANG_MODULE),
-                        [0 => ""] + array_map(function (array $field) : string {
-                            return $field["field_name"];
-                        }, ilUserDefinedFields::_getInstance()->getDefinitions()),
-                        self::plugin()->translate("udf_field_info", LearningProgressResetSettingsGUI::LANG_MODULE, [LearningProgressResetSettings::DATE_FORMAT]))->withRequired(true)
-                ])),
+        $enabled_fields = [
+            "days"      => self::dic()->ui()->factory()->input()->field()->numeric(self::plugin()->translate("days", LearningProgressResetSettingsGUI::LANG_MODULE),
+                self::plugin()->translate("days_info", LearningProgressResetSettingsGUI::LANG_MODULE))->withRequired(true),
+            "udf_field" => self::dic()->ui()->factory()->input()->field()->select(self::plugin()->translate("udf_field", LearningProgressResetSettingsGUI::LANG_MODULE),
+                [0 => ""] + array_map(function (array $field) : string {
+                    return $field["field_name"];
+                }, ilUserDefinedFields::_getInstance()->getDefinitions()),
+                self::plugin()->translate("udf_field_info", LearningProgressResetSettingsGUI::LANG_MODULE, [LearningProgressResetSettings::DATE_FORMAT]))->withRequired(true)
         ];
+
+        if (self::version()->is6()) {
+            $fields = [
+                "enabled" => self::dic()->ui()->factory()->input()->field()->optionalGroup($enabled_fields, self::plugin()->translate("enabled", LearningProgressResetSettingsGUI::LANG_MODULE))
+            ];
+        } else {
+            $fields = [
+                "enabled" => self::dic()
+                    ->ui()
+                    ->factory()
+                    ->input()
+                    ->field()
+                    ->checkbox(self::plugin()->translate("enabled", LearningProgressResetSettingsGUI::LANG_MODULE))
+                    ->withDependantGroup(self::dic()->ui()->factory()->input()->field()->dependantGroup($enabled_fields))
+            ];
+        }
 
         return $fields;
     }
@@ -116,11 +125,21 @@ class FormBuilder extends AbstractFormBuilder
      */
     protected function storeData(array $data)/* : void*/
     {
-        $this->learning_progress_reset_settings->setEnabled(boolval($data["enabled"]["value"]));
-        $this->learning_progress_reset_settings->setDays(intval(($this->learning_progress_reset_settings->isEnabled() ? $data["enabled"]["group_values"]
-            : $data["enabled"])["dependant_group"]["days"]));
-        $this->learning_progress_reset_settings->setUdfField(intval(($this->learning_progress_reset_settings->isEnabled() ? $data["enabled"]["group_values"]
-            : $data["enabled"])["dependant_group"]["udf_field"]));
+        if (self::version()->is6()) {
+            if (!empty($data["enabled"])) {
+                $this->learning_progress_reset_settings->setEnabled(true);
+                $this->learning_progress_reset_settings->setDays(intval($data["enabled"]["days"]));
+                $this->learning_progress_reset_settings->setUdfField(intval($data["enabled"]["udf_field"]));
+            } else {
+                $this->learning_progress_reset_settings->setEnabled(false);
+            }
+        } else {
+            $this->learning_progress_reset_settings->setEnabled(boolval($data["enabled"]["value"]));
+            $this->learning_progress_reset_settings->setDays(intval(($this->learning_progress_reset_settings->isEnabled() ? $data["enabled"]["group_values"]
+                : $data["enabled"])["dependant_group"]["days"]));
+            $this->learning_progress_reset_settings->setUdfField(intval(($this->learning_progress_reset_settings->isEnabled() ? $data["enabled"]["group_values"]
+                : $data["enabled"])["dependant_group"]["udf_field"]));
+        }
 
         self::srLearningProgressReset()->learningProgressReset()->storeLearningProgressResetSettings($this->learning_progress_reset_settings);
     }
