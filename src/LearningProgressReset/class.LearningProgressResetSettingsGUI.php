@@ -38,9 +38,9 @@ class LearningProgressResetSettingsGUI
      */
     protected $obj_ref_id;
     /**
-     * @var LearningProgressResetSettings
+     * @var Settings
      */
-    protected $learning_progress_reset_settings;
+    protected $settings;
 
 
     /**
@@ -65,7 +65,7 @@ class LearningProgressResetSettingsGUI
 
         self::dic()->ctrl()->saveParameter($this, self::GET_PARAM_REF_ID);
 
-        $this->learning_progress_reset_settings = self::srLearningProgressReset()->learningProgressReset()->getLearningProgressResetSettings($this->obj_ref_id);
+        $this->settings = self::srLearningProgressReset()->learningProgressReset()->getSettings($this->obj_ref_id);
 
         $this->setTabs();
 
@@ -113,7 +113,7 @@ class LearningProgressResetSettingsGUI
     {
         self::dic()->tabs()->clearTargets();
 
-        self::dic()->tabs()->setBackTarget($this->learning_progress_reset_settings->getObject()->getTitle(), self::dic()->ctrl()
+        self::dic()->tabs()->setBackTarget($this->settings->getObject()->getTitle(), self::dic()->ctrl()
             ->getLinkTarget($this, self::CMD_BACK));
 
         self::dic()
@@ -147,7 +147,7 @@ class LearningProgressResetSettingsGUI
     {
         self::dic()->tabs()->activateTab(self::TAB_SETTINGS);
 
-        $form = self::srLearningProgressReset()->learningProgressReset()->factory()->newFormBuilderInstance($this, $this->learning_progress_reset_settings);
+        $form = self::srLearningProgressReset()->learningProgressReset()->factory()->newFormBuilderInstance($this, $this->settings);
 
         self::output()->output($form, true);
     }
@@ -160,7 +160,7 @@ class LearningProgressResetSettingsGUI
     {
         self::dic()->tabs()->activateTab(self::TAB_SETTINGS);
 
-        $form = self::srLearningProgressReset()->learningProgressReset()->factory()->newFormBuilderInstance($this, $this->learning_progress_reset_settings);
+        $form = self::srLearningProgressReset()->learningProgressReset()->factory()->newFormBuilderInstance($this, $this->settings);
 
         if (!$form->storeForm()) {
             self::output()->output($form, true);

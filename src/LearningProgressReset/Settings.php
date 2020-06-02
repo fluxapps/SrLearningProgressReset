@@ -11,13 +11,13 @@ use srag\DIC\SrLearningProgressReset\DICTrait;
 use srag\Plugins\SrLearningProgressReset\Utils\SrLearningProgressResetTrait;
 
 /**
- * Class LearningProgressResetSettings
+ * Class Settings
  *
  * @package srag\Plugins\SrLearningProgressReset\LearningProgressReset
  *
  * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */
-class LearningProgressResetSettings extends ActiveRecord
+class Settings extends ActiveRecord
 {
 
     use DICTrait;
@@ -92,7 +92,7 @@ class LearningProgressResetSettings extends ActiveRecord
 
 
     /**
-     * LearningProgressResetSettings constructor
+     * Settings constructor
      *
      * @param int              $primary_key_value
      * @param arConnector|null $connector

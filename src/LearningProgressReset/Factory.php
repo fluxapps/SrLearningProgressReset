@@ -50,25 +50,25 @@ final class Factory
 
 
     /**
-     * @return LearningProgressResetSettings
+     * @return Settings
      */
-    public function newInstance() : LearningProgressResetSettings
+    public function newInstance() : Settings
     {
-        $learning_progress_reset_settings = new LearningProgressResetSettings();
+        $settings = new Settings();
 
-        return $learning_progress_reset_settings;
+        return $settings;
     }
 
 
     /**
      * @param LearningProgressResetSettingsGUI $parent
-     * @param LearningProgressResetSettings    $learning_progress_reset_settings
+     * @param Settings                         $settings
      *
      * @return FormBuilder
      */
-    public function newFormBuilderInstance(LearningProgressResetSettingsGUI $parent, LearningProgressResetSettings $learning_progress_reset_settings) : FormBuilder
+    public function newFormBuilderInstance(LearningProgressResetSettingsGUI $parent, Settings $settings) : FormBuilder
     {
-        $form = new FormBuilder($parent, $learning_progress_reset_settings);
+        $form = new FormBuilder($parent, $settings);
 
         return $form;
     }

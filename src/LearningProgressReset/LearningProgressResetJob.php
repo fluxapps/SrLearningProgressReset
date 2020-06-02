@@ -114,15 +114,15 @@ class LearningProgressResetJob extends ilCronJob
 
         $result = new ilCronJobResult();
 
-        $all_learning_progress_reset_settings = self::srLearningProgressReset()->learningProgressReset()->getAllLearningProgressResetSettings();
+        $all_settings = self::srLearningProgressReset()->learningProgressReset()->getAllSettings();
 
         $count_users = 0;
         $count_reset = 0;
 
-        foreach ($all_learning_progress_reset_settings as $learning_progress_reset_settings) {
+        foreach ($all_settings as $settings) {
             foreach (
-                array_unique(array_merge($learning_progress_reset_settings->getObject()->getMembersObject()->getMembers(),
-                    $learning_progress_reset_settings->getObject()->getMembersObject()->getTutors(), $learning_progress_reset_settings->getObject()->getMembersObject()->getAdmins())) as $user_id
+                array_unique(array_merge($settings->getObject()->getMembersObject()->getMembers(),
+                    $settings->getObject()->getMembersObject()->getTutors(), $settings->getObject()->getMembersObject()->getAdmins())) as $user_id
             ) {
                 $count_users++;
 
@@ -130,21 +130,21 @@ class LearningProgressResetJob extends ilCronJob
 
                 $udf_values = $user->getUserDefinedData();
 
-                if (empty($learning_progress_reset_settings->getUdfField())
-                    || empty($udf_value_date = strval($udf_values["f_" . ($learning_progress_reset_settings->getUdfField())]))
+                if (empty($settings->getUdfField())
+                    || empty($udf_value_date = strval($udf_values["f_" . ($settings->getUdfField())]))
                     || empty($udf_value_date
-                        = DateTime::createFromFormat(LearningProgressResetSettings::DATE_FORMAT, $udf_value_date))
+                        = DateTime::createFromFormat(Settings::DATE_FORMAT, $udf_value_date))
                 ) {
                     continue;
                 }
 
                 $udf_value_date->setTime(0, 0, 0, 0);
 
-                if (($diff = intval(($time - $udf_value_date->getTimestamp()) / (60 * 60 * 24))) !== $learning_progress_reset_settings->getDays()) {
+                if (($diff = intval(($time - $udf_value_date->getTimestamp()) / (60 * 60 * 24))) !== $settings->getDays()) {
                     continue;
                 }
 
-                ilLPStatus::writeStatus($learning_progress_reset_settings->getObjId(), $user_id, ilLPStatus::LP_STATUS_NOT_ATTEMPTED);
+                ilLPStatus::writeStatus($settings->getObjId(), $user_id, ilLPStatus::LP_STATUS_NOT_ATTEMPTED);
 
                 $count_reset++;
             }
@@ -153,7 +153,7 @@ class LearningProgressResetJob extends ilCronJob
         $result->setStatus(ilCronJobResult::STATUS_OK);
 
         $result->setMessage(nl2br(self::plugin()->translate("result", self::LANG_MODULE, [
-            count($all_learning_progress_reset_settings),
+            count($all_settings),
             $count_users,
             $count_reset
         ]), false));
