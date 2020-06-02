@@ -13,7 +13,7 @@ class ComposerStaticInit26b4253cc8069af7c88ca0755f6cdb80
             'srag\\Plugins\\SrLearningProgressReset\\' => 37,
             'srag\\LibrariesNamespaceChanger\\' => 31,
             'srag\\DIC\\SrLearningProgressReset\\' => 33,
-            'srag\\CustomInputGUIs\\' => 21,
+            'srag\\CustomInputGUIs\\SrLearningProgressReset\\' => 45,
         ),
     );
 
@@ -34,7 +34,7 @@ class ComposerStaticInit26b4253cc8069af7c88ca0755f6cdb80
         array (
             0 => __DIR__ . '/..' . '/srag/dic/src',
         ),
-        'srag\\CustomInputGUIs\\' => 
+        'srag\\CustomInputGUIs\\SrLearningProgressReset\\' => 
         array (
             0 => __DIR__ . '/..' . '/srag/custominputguis/src',
         ),
@@ -151,9 +151,9 @@ class ComposerStaticInit26b4253cc8069af7c88ca0755f6cdb80
         'srag\\Plugins\\SrLearningProgressReset\\LearningProgressReset\\Factory' => __DIR__ . '/../..' . '/src/LearningProgressReset/Factory.php',
         'srag\\Plugins\\SrLearningProgressReset\\LearningProgressReset\\Form\\FormBuilder' => __DIR__ . '/../..' . '/src/LearningProgressReset/Form/FormBuilder.php',
         'srag\\Plugins\\SrLearningProgressReset\\LearningProgressReset\\LearningProgressResetJob' => __DIR__ . '/../..' . '/src/LearningProgressReset/LearningProgressResetJob.php',
-        'srag\\Plugins\\SrLearningProgressReset\\LearningProgressReset\\LearningProgressResetSettings' => __DIR__ . '/../..' . '/src/LearningProgressReset/LearningProgressResetSettings.php',
         'srag\\Plugins\\SrLearningProgressReset\\LearningProgressReset\\LearningProgressResetSettingsGUI' => __DIR__ . '/../..' . '/src/LearningProgressReset/class.LearningProgressResetSettingsGUI.php',
         'srag\\Plugins\\SrLearningProgressReset\\LearningProgressReset\\Repository' => __DIR__ . '/../..' . '/src/LearningProgressReset/Repository.php',
+        'srag\\Plugins\\SrLearningProgressReset\\LearningProgressReset\\Settings' => __DIR__ . '/../..' . '/src/LearningProgressReset/Settings.php',
         'srag\\Plugins\\SrLearningProgressReset\\Repository' => __DIR__ . '/../..' . '/src/Repository.php',
         'srag\\Plugins\\SrLearningProgressReset\\Utils\\SrLearningProgressResetTrait' => __DIR__ . '/../..' . '/src/Utils/SrLearningProgressResetTrait.php',
         'srag\\RemovePluginDataConfirm\\SrLearningProgressReset\\BasePluginUninstallTrait' => __DIR__ . '/..' . '/srag/removeplugindataconfirm/src/BasePluginUninstallTrait.php',
