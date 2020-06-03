@@ -9,7 +9,7 @@ class ComposerStaticInit26b4253cc8069af7c88ca0755f6cdb80
     public static $prefixLengthsPsr4 = array (
         's' => 
         array (
-            'srag\\RemovePluginDataConfirm\\SrLearningProgressReset\\' => 53,
+            'srag\\RemovePluginDataConfirm\\' => 29,
             'srag\\Plugins\\SrLearningProgressReset\\' => 37,
             'srag\\LibrariesNamespaceChanger\\' => 31,
             'srag\\DIC\\SrLearningProgressReset\\' => 33,
@@ -18,7 +18,7 @@ class ComposerStaticInit26b4253cc8069af7c88ca0755f6cdb80
     );
 
     public static $prefixDirsPsr4 = array (
-        'srag\\RemovePluginDataConfirm\\SrLearningProgressReset\\' => 
+        'srag\\RemovePluginDataConfirm\\' => 
         array (
             0 => __DIR__ . '/..' . '/srag/removeplugindataconfirm/src',
         ),
