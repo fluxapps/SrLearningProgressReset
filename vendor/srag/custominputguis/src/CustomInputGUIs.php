@@ -3,13 +3,11 @@
 namespace srag\CustomInputGUIs\SrLearningProgressReset;
 
 use ILIAS\Data\Color;
-use ILIAS\UI\Implementation\Component\Chart\ProgressMeter\Factory as ProgressMeterFactoryCore;
 use srag\CustomInputGUIs\SrLearningProgressReset\LearningProgressPieUI\LearningProgressPieUI;
 use srag\CustomInputGUIs\SrLearningProgressReset\PieChart\Component\PieChart as PieChartInterface;
 use srag\CustomInputGUIs\SrLearningProgressReset\PieChart\Component\PieChartItem as PieChartItemInterface;
 use srag\CustomInputGUIs\SrLearningProgressReset\PieChart\Implementation\PieChart;
 use srag\CustomInputGUIs\SrLearningProgressReset\PieChart\Implementation\PieChartItem;
-use srag\CustomInputGUIs\SrLearningProgressReset\ProgressMeter\Implementation\Factory as ProgressMeterFactory;
 use srag\CustomInputGUIs\SrLearningProgressReset\ViewControlModeUI\ViewControlModeUI;
 use srag\DIC\SrLearningProgressReset\DICTrait;
 
@@ -39,7 +37,7 @@ final class CustomInputGUIs
     /**
      * @return self
      */
-    public static function getInstance()/*: self*/
+    public static function getInstance() : self
     {
         if (self::$instance === null) {
             self::$instance = new self();
@@ -61,7 +59,7 @@ final class CustomInputGUIs
     /**
      * @return LearningProgressPieUI
      */
-    public function learningProgressPie()
+    public function learningProgressPie() : LearningProgressPieUI
     {
         return new LearningProgressPieUI();
     }
@@ -105,24 +103,9 @@ final class CustomInputGUIs
 
 
     /**
-     * @return ProgressMeterFactoryCore|ProgressMeterFactory
-     *
-     * @since ILIAS 5.4
-     */
-    public function progressMeter()
-    {
-        if (self::version()->is54()) {
-            return new ProgressMeterFactoryCore();
-        } else {
-            return new ProgressMeterFactory();
-        }
-    }
-
-
-    /**
      * @return ViewControlModeUI
      */
-    public function viewControlMode()
+    public function viewControlMode() : ViewControlModeUI
     {
         return new ViewControlModeUI();
     }
