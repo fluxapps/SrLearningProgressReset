@@ -6,6 +6,10 @@ namespace Composer\Autoload;
 
 class ComposerStaticInit26b4253cc8069af7c88ca0755f6cdb80
 {
+    public static $files = array (
+        'a858000df660e132873772a2024a10a5' => __DIR__ . '/..' . '/srag/dic/src/PHPVersionChecker.php',
+    );
+
     public static $prefixLengthsPsr4 = array (
         's' => 
         array (
@@ -13,7 +17,7 @@ class ComposerStaticInit26b4253cc8069af7c88ca0755f6cdb80
             'srag\\Plugins\\SrLearningProgressReset\\' => 37,
             'srag\\LibrariesNamespaceChanger\\' => 31,
             'srag\\DIC\\SrLearningProgressReset\\' => 33,
-            'srag\\CustomInputGUIs\\' => 21,
+            'srag\\CustomInputGUIs\\SrLearningProgressReset\\' => 45,
         ),
     );
 
@@ -34,7 +38,7 @@ class ComposerStaticInit26b4253cc8069af7c88ca0755f6cdb80
         array (
             0 => __DIR__ . '/..' . '/srag/dic/src',
         ),
-        'srag\\CustomInputGUIs\\' => 
+        'srag\\CustomInputGUIs\\SrLearningProgressReset\\' => 
         array (
             0 => __DIR__ . '/..' . '/srag/custominputguis/src',
         ),
@@ -131,6 +135,7 @@ class ComposerStaticInit26b4253cc8069af7c88ca0755f6cdb80
         'srag\\DIC\\SrLearningProgressReset\\Util\\LibraryLanguageInstaller' => __DIR__ . '/..' . '/srag/dic/src/Util/LibraryLanguageInstaller.php',
         'srag\\DIC\\SrLearningProgressReset\\Version\\Version' => __DIR__ . '/..' . '/srag/dic/src/Version/Version.php',
         'srag\\DIC\\SrLearningProgressReset\\Version\\VersionInterface' => __DIR__ . '/..' . '/srag/dic/src/Version/VersionInterface.php',
+        'srag\\LibrariesNamespaceChanger\\GeneratePluginPhp' => __DIR__ . '/..' . '/srag/librariesnamespacechanger/src/GeneratePluginPhp.php',
         'srag\\LibrariesNamespaceChanger\\LibrariesNamespaceChanger' => __DIR__ . '/..' . '/srag/librariesnamespacechanger/src/LibrariesNamespaceChanger.php',
         'srag\\LibrariesNamespaceChanger\\PHP72Backport' => __DIR__ . '/..' . '/srag/librariesnamespacechanger/src/PHP72Backport.php',
         'srag\\LibrariesNamespaceChanger\\PHP7Backport' => __DIR__ . '/..' . '/srag/librariesnamespacechanger/src/PHP7Backport.php',
