@@ -20,7 +20,7 @@ Update and activate the plugin in the ILIAS Plugin Administration
 You need also to install [SrLearningProgressResetCron](https://github.com/studer-raimann/SrLearningProgressResetCron).
 
 ## Requirements
-* ILIAS 5.4 or ILIAS 6
+* ILIAS 5.4.0 - 6.999
 * PHP >=7.0
 
 ## Adjustment suggestions
