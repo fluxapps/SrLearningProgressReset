@@ -140,6 +140,7 @@ class ComposerStaticInit26b4253cc8069af7c88ca0755f6cdb80
         'srag\\LibrariesNamespaceChanger\\PHP72Backport' => __DIR__ . '/..' . '/srag/librariesnamespacechanger/src/PHP72Backport.php',
         'srag\\LibrariesNamespaceChanger\\PHP7Backport' => __DIR__ . '/..' . '/srag/librariesnamespacechanger/src/PHP7Backport.php',
         'srag\\LibrariesNamespaceChanger\\RemovePHP72Backport' => __DIR__ . '/..' . '/srag/librariesnamespacechanger/src/RemovePHP72Backport.php',
+        'srag\\LibrariesNamespaceChanger\\UpdatePluginReadme' => __DIR__ . '/..' . '/srag/librariesnamespacechanger/src/UpdatePluginReadme.php',
         'srag\\Plugins\\SrLearningProgressReset\\Job\\Factory' => __DIR__ . '/../..' . '/src/Job/Factory.php',
         'srag\\Plugins\\SrLearningProgressReset\\Job\\Repository' => __DIR__ . '/../..' . '/src/Job/Repository.php',
         'srag\\Plugins\\SrLearningProgressReset\\LearningProgressReset\\Factory' => __DIR__ . '/../..' . '/src/LearningProgressReset/Factory.php',
