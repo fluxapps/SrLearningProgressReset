@@ -26,12 +26,12 @@ class LearningProgressResetSettingsGUI
     use DICTrait;
     use SrLearningProgressResetTrait;
 
-    const PLUGIN_CLASS_NAME = ilSrLearningProgressResetPlugin::class;
     const CMD_BACK = "back";
     const CMD_EDIT_SETTINGS = "editSettings";
     const CMD_UPDATE_SETTINGS = "updateSettings";
     const GET_PARAM_REF_ID = "ref_id";
     const LANG_MODULE = "learning_progress_reset_settings";
+    const PLUGIN_CLASS_NAME = ilSrLearningProgressResetPlugin::class;
     const TAB_SETTINGS = "settings";
     /**
      * @var int
@@ -49,6 +49,22 @@ class LearningProgressResetSettingsGUI
     public function __construct()
     {
 
+    }
+
+
+    /**
+     * @param int $obj_ref_id
+     */
+    public static function addTabs(int $obj_ref_id)/* : void*/
+    {
+        if (self::srLearningProgressReset()->learningProgressReset()->hasAccess(self::dic()->user()->getId(), $obj_ref_id)) {
+            self::dic()->ctrl()->setParameterByClass(self::class, self::GET_PARAM_REF_ID, $obj_ref_id);
+
+            self::dic()
+                ->tabs()
+                ->addSubTab(self::TAB_SETTINGS, self::plugin()->translate("settings", self::LANG_MODULE),
+                    self::dic()->ctrl()->getLinkTargetByClass([ilUIPluginRouterGUI::class, self::class], self::CMD_EDIT_SETTINGS));
+        }
     }
 
 
@@ -91,39 +107,6 @@ class LearningProgressResetSettingsGUI
 
 
     /**
-     * @param int $obj_ref_id
-     */
-    public static function addTabs(int $obj_ref_id)/* : void*/
-    {
-        if (self::srLearningProgressReset()->learningProgressReset()->hasAccess(self::dic()->user()->getId(), $obj_ref_id)) {
-            self::dic()->ctrl()->setParameterByClass(self::class, self::GET_PARAM_REF_ID, $obj_ref_id);
-
-            self::dic()
-                ->tabs()
-                ->addSubTab(self::TAB_SETTINGS, self::plugin()->translate("settings", self::LANG_MODULE),
-                    self::dic()->ctrl()->getLinkTargetByClass([ilUIPluginRouterGUI::class, self::class], self::CMD_EDIT_SETTINGS));
-        }
-    }
-
-
-    /**
-     *
-     */
-    protected function setTabs()/* : void*/
-    {
-        self::dic()->tabs()->clearTargets();
-
-        self::dic()->tabs()->setBackTarget($this->settings->getObject()->getTitle(), self::dic()->ctrl()
-            ->getLinkTarget($this, self::CMD_BACK));
-
-        self::dic()
-            ->tabs()
-            ->addTab(self::TAB_SETTINGS, self::plugin()->translate("settings", self::LANG_MODULE),
-                self::dic()->ctrl()->getLinkTargetByClass([ilUIPluginRouterGUI::class, self::class], self::CMD_EDIT_SETTINGS));
-    }
-
-
-    /**
      *
      */
     protected function back()/* : void*/
@@ -150,6 +133,23 @@ class LearningProgressResetSettingsGUI
         $form = self::srLearningProgressReset()->learningProgressReset()->factory()->newFormBuilderInstance($this, $this->settings);
 
         self::output()->output($form, true);
+    }
+
+
+    /**
+     *
+     */
+    protected function setTabs()/* : void*/
+    {
+        self::dic()->tabs()->clearTargets();
+
+        self::dic()->tabs()->setBackTarget($this->settings->getObject()->getTitle(), self::dic()->ctrl()
+            ->getLinkTarget($this, self::CMD_BACK));
+
+        self::dic()
+            ->tabs()
+            ->addTab(self::TAB_SETTINGS, self::plugin()->translate("settings", self::LANG_MODULE),
+                self::dic()->ctrl()->getLinkTargetByClass([ilUIPluginRouterGUI::class, self::class], self::CMD_EDIT_SETTINGS));
     }
 
 

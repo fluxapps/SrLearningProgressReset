@@ -18,13 +18,22 @@ class ilSrLearningProgressResetPlugin extends ilUserInterfaceHookPlugin
     use PluginUninstallTrait;
     use SrLearningProgressResetTrait;
 
+    const PLUGIN_CLASS_NAME = self::class;
     const PLUGIN_ID = "srleprre";
     const PLUGIN_NAME = "SrLearningProgressReset";
-    const PLUGIN_CLASS_NAME = self::class;
     /**
      * @var self|null
      */
     protected static $instance = null;
+
+
+    /**
+     * ilSrLearningProgressResetPlugin constructor
+     */
+    public function __construct()
+    {
+        parent::__construct();
+    }
 
 
     /**
@@ -41,11 +50,11 @@ class ilSrLearningProgressResetPlugin extends ilUserInterfaceHookPlugin
 
 
     /**
-     * ilSrLearningProgressResetPlugin constructor
+     * @inheritDoc
      */
-    public function __construct()
+    public function exchangeUIRendererAfterInitialization(Container $dic) : Closure
     {
-        parent::__construct();
+        return CustomInputGUIsLoaderDetector::exchangeUIRendererAfterInitialization();
     }
 
 
@@ -55,15 +64,6 @@ class ilSrLearningProgressResetPlugin extends ilUserInterfaceHookPlugin
     public function getPluginName() : string
     {
         return self::PLUGIN_NAME;
-    }
-
-
-    /**
-     * @inheritDoc
-     */
-    protected function shouldUseOneUpdateStepOnly() : bool
-    {
-        return true;
     }
 
 
@@ -90,8 +90,8 @@ class ilSrLearningProgressResetPlugin extends ilUserInterfaceHookPlugin
     /**
      * @inheritDoc
      */
-    public function exchangeUIRendererAfterInitialization(Container $dic) : Closure
+    protected function shouldUseOneUpdateStepOnly() : bool
     {
-        return CustomInputGUIsLoaderDetector::exchangeUIRendererAfterInitialization();
+        return true;
     }
 }

@@ -23,32 +23,19 @@ class Settings extends ActiveRecord
     use DICTrait;
     use SrLearningProgressResetTrait;
 
-    const TABLE_NAME = ilSrLearningProgressResetPlugin::PLUGIN_ID . "_obj_set";
-    const PLUGIN_CLASS_NAME = ilSrLearningProgressResetPlugin::class;
     const DATE_FORMAT = "Y-m-d";
     const OBJECT_TYPES = ["crs"];
-
-
+    const PLUGIN_CLASS_NAME = ilSrLearningProgressResetPlugin::class;
+    const TABLE_NAME = ilSrLearningProgressResetPlugin::PLUGIN_ID . "_obj_set";
     /**
-     * @inheritDoc
-     */
-    public function getConnectorContainerName() : string
-    {
-        return self::TABLE_NAME;
-    }
-
-
-    /**
-     * @inheritDoc
+     * @var int
      *
-     * @deprecated
+     * @con_has_field    true
+     * @con_fieldtype    integer
+     * @con_length       8
+     * @con_is_notnull   true
      */
-    public static function returnDbTableName() : string
-    {
-        return self::TABLE_NAME;
-    }
-
-
+    protected $days = 0;
     /**
      * @var bool
      *
@@ -69,14 +56,9 @@ class Settings extends ActiveRecord
      */
     protected $obj_id;
     /**
-     * @var int
-     *
-     * @con_has_field    true
-     * @con_fieldtype    integer
-     * @con_length       8
-     * @con_is_notnull   true
+     * @var ilObject|null
      */
-    protected $days = 0;
+    protected $object = null;
     /**
      * @var int
      *
@@ -85,10 +67,6 @@ class Settings extends ActiveRecord
      * @con_is_notnull   true
      */
     protected $udf_field = 0;
-    /**
-     * @var ilObject|null
-     */
-    protected $object = null;
 
 
     /**
@@ -100,6 +78,111 @@ class Settings extends ActiveRecord
     public function __construct(/*int*/ $primary_key_value = 0, arConnector $connector = null)
     {
         parent::__construct($primary_key_value, $connector);
+    }
+
+
+    /**
+     * @inheritDoc
+     *
+     * @deprecated
+     */
+    public static function returnDbTableName() : string
+    {
+        return self::TABLE_NAME;
+    }
+
+
+    /**
+     * @inheritDoc
+     */
+    public function getConnectorContainerName() : string
+    {
+        return self::TABLE_NAME;
+    }
+
+
+    /**
+     * @return int
+     */
+    public function getDays() : int
+    {
+        return $this->days;
+    }
+
+
+    /**
+     * @param int $days
+     */
+    public function setDays(int $days)/* : void*/
+    {
+        $this->days = $days;
+    }
+
+
+    /**
+     * @return int
+     */
+    public function getObjId() : int
+    {
+        return $this->obj_id;
+    }
+
+
+    /**
+     * @param int $obj_id
+     */
+    public function setObjId(int $obj_id)/* : void*/
+    {
+        $this->obj_id = $obj_id;
+    }
+
+
+    /**
+     * @return ilObject
+     */
+    public function getObject() : ilObject
+    {
+        if ($this->object === null) {
+            $this->object = ilObjectFactory::getInstanceByObjId($this->obj_id, false);
+        }
+
+        return $this->object;
+    }
+
+
+    /**
+     * @return int
+     */
+    public function getUdfField() : int
+    {
+        return $this->udf_field;
+    }
+
+
+    /**
+     * @param int $udf_field
+     */
+    public function setUdfField(int $udf_field)/* : void*/
+    {
+        $this->udf_field = $udf_field;
+    }
+
+
+    /**
+     * @return bool
+     */
+    public function isEnabled() : bool
+    {
+        return $this->enabled;
+    }
+
+
+    /**
+     * @param bool $enabled
+     */
+    public function setEnabled(bool $enabled)/* : void*/
+    {
+        $this->enabled = $enabled;
     }
 
 
@@ -132,90 +215,5 @@ class Settings extends ActiveRecord
             default:
                 return parent::wakeUp($field_name, $field_value);
         }
-    }
-
-
-    /**
-     * @return ilObject
-     */
-    public function getObject() : ilObject
-    {
-        if ($this->object === null) {
-            $this->object = ilObjectFactory::getInstanceByObjId($this->obj_id, false);
-        }
-
-        return $this->object;
-    }
-
-
-    /**
-     * @return bool
-     */
-    public function isEnabled() : bool
-    {
-        return $this->enabled;
-    }
-
-
-    /**
-     * @param bool $enabled
-     */
-    public function setEnabled(bool $enabled)/* : void*/
-    {
-        $this->enabled = $enabled;
-    }
-
-
-    /**
-     * @return int
-     */
-    public function getObjId() : int
-    {
-        return $this->obj_id;
-    }
-
-
-    /**
-     * @param int $obj_id
-     */
-    public function setObjId(int $obj_id)/* : void*/
-    {
-        $this->obj_id = $obj_id;
-    }
-
-
-    /**
-     * @return int
-     */
-    public function getDays() : int
-    {
-        return $this->days;
-    }
-
-
-    /**
-     * @param int $days
-     */
-    public function setDays(int $days)/* : void*/
-    {
-        $this->days = $days;
-    }
-
-
-    /**
-     * @return int
-     */
-    public function getUdfField() : int
-    {
-        return $this->udf_field;
-    }
-
-
-    /**
-     * @param int $udf_field
-     */
-    public function setUdfField(int $udf_field)/* : void*/
-    {
-        $this->udf_field = $udf_field;
     }
 }

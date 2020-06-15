@@ -25,8 +25,8 @@ class LearningProgressResetJob extends ilCronJob
     use SrLearningProgressResetTrait;
 
     const CRON_JOB_ID = ilSrLearningProgressResetPlugin::PLUGIN_ID;
-    const PLUGIN_CLASS_NAME = ilSrLearningProgressResetPlugin::class;
     const LANG_MODULE = "learning_progress_reset_job";
+    const PLUGIN_CLASS_NAME = ilSrLearningProgressResetPlugin::class;
     /**
      * @var ilObjUser[]
      */
@@ -39,6 +39,33 @@ class LearningProgressResetJob extends ilCronJob
     public function __construct()
     {
 
+    }
+
+
+    /**
+     * @inheritDoc
+     */
+    public function getDefaultScheduleType() : int
+    {
+        return self::SCHEDULE_TYPE_DAILY;
+    }
+
+
+    /**
+     * @inheritDoc
+     */
+    public function getDefaultScheduleValue()/* : ?int*/
+    {
+        return null;
+    }
+
+
+    /**
+     * @inheritDoc
+     */
+    public function getDescription() : string
+    {
+        return self::plugin()->translate("description", self::LANG_MODULE);
     }
 
 
@@ -63,15 +90,6 @@ class LearningProgressResetJob extends ilCronJob
     /**
      * @inheritDoc
      */
-    public function getDescription() : string
-    {
-        return self::plugin()->translate("description", self::LANG_MODULE);
-    }
-
-
-    /**
-     * @inheritDoc
-     */
     public function hasAutoActivation() : bool
     {
         return true;
@@ -84,24 +102,6 @@ class LearningProgressResetJob extends ilCronJob
     public function hasFlexibleSchedule() : bool
     {
         return true;
-    }
-
-
-    /**
-     * @inheritDoc
-     */
-    public function getDefaultScheduleType() : int
-    {
-        return self::SCHEDULE_TYPE_DAILY;
-    }
-
-
-    /**
-     * @inheritDoc
-     */
-    public function getDefaultScheduleValue()/* : ?int*/
-    {
-        return null;
     }
 
 
