@@ -1,5 +1,9 @@
 # Changelog
 
+## [2.0.0]
+- Second method for get date (JSON server)
+- Set date to today
+
 ## [1.1.1]
 - Dev tools
 

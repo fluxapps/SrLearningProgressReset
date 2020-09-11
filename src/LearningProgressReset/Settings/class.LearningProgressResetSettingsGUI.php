@@ -1,6 +1,6 @@
 <?php
 
-namespace srag\Plugins\SrLearningProgressReset\LearningProgressReset;
+namespace srag\Plugins\SrLearningProgressReset\LearningProgressReset\Settings;
 
 use ilLearningProgressGUI;
 use ilObjectGUIFactory;
@@ -14,11 +14,11 @@ use srag\Plugins\SrLearningProgressReset\Utils\SrLearningProgressResetTrait;
 /**
  * Class LearningProgressResetSettingsGUI
  *
- * @package           srag\Plugins\SrLearningProgressReset\LearningProgressReset
+ * @package           srag\Plugins\SrLearningProgressReset\LearningProgressReset\Settings
  *
  * @author            studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  *
- * @ilCtrl_isCalledBy srag\Plugins\SrLearningProgressReset\LearningProgressReset\LearningProgressResetSettingsGUI: ilUIPluginRouterGUI
+ * @ilCtrl_isCalledBy srag\Plugins\SrLearningProgressReset\LearningProgressReset\Settings\LearningProgressResetSettingsGUI: ilUIPluginRouterGUI
  */
 class LearningProgressResetSettingsGUI
 {
@@ -81,7 +81,7 @@ class LearningProgressResetSettingsGUI
 
         self::dic()->ctrl()->saveParameter($this, self::GET_PARAM_REF_ID);
 
-        $this->settings = self::srLearningProgressReset()->learningProgressReset()->getSettings($this->obj_ref_id);
+        $this->settings = self::srLearningProgressReset()->learningProgressReset()->settings()->getSettings($this->obj_ref_id);
 
         $this->setTabs();
 
@@ -113,12 +113,11 @@ class LearningProgressResetSettingsGUI
     {
         self::dic()->ctrl()->saveParameterByClass(ilRepositoryGUI::class, self::GET_PARAM_REF_ID);
 
-        self::dic()->ctrl()->redirectToURL(self::dic()->ctrl()
-            ->getLinkTargetByClass([
-                ilRepositoryGUI::class,
-                get_class((new ilObjectGUIFactory())->getInstanceByRefId($this->obj_ref_id)),
-                ilLearningProgressGUI::class
-            ], "", "", false, false)
+        self::dic()->ctrl()->redirectToURL(self::dic()->ctrl()->getLinkTargetByClass([
+            ilRepositoryGUI::class,
+            get_class((new ilObjectGUIFactory())->getInstanceByRefId($this->obj_ref_id)),
+            ilLearningProgressGUI::class
+        ], "", "", false, false)
         );
     }
 
@@ -130,7 +129,7 @@ class LearningProgressResetSettingsGUI
     {
         self::dic()->tabs()->activateTab(self::TAB_SETTINGS);
 
-        $form = self::srLearningProgressReset()->learningProgressReset()->factory()->newFormBuilderInstance($this, $this->settings);
+        $form = self::srLearningProgressReset()->learningProgressReset()->settings()->factory()->newFormBuilderInstance($this, $this->settings);
 
         self::output()->output($form, true);
     }
@@ -143,8 +142,7 @@ class LearningProgressResetSettingsGUI
     {
         self::dic()->tabs()->clearTargets();
 
-        self::dic()->tabs()->setBackTarget($this->settings->getObject()->getTitle(), self::dic()->ctrl()
-            ->getLinkTarget($this, self::CMD_BACK));
+        self::dic()->tabs()->setBackTarget($this->settings->getObject()->getTitle(), self::dic()->ctrl()->getLinkTarget($this, self::CMD_BACK));
 
         self::dic()
             ->tabs()
@@ -160,7 +158,7 @@ class LearningProgressResetSettingsGUI
     {
         self::dic()->tabs()->activateTab(self::TAB_SETTINGS);
 
-        $form = self::srLearningProgressReset()->learningProgressReset()->factory()->newFormBuilderInstance($this, $this->settings);
+        $form = self::srLearningProgressReset()->learningProgressReset()->settings()->factory()->newFormBuilderInstance($this, $this->settings);
 
         if (!$form->storeForm()) {
             self::output()->output($form, true);

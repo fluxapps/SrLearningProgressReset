@@ -2,11 +2,8 @@
 
 namespace srag\Plugins\SrLearningProgressReset\LearningProgressReset;
 
-use DateTime;
 use ilCronJob;
 use ilCronJobResult;
-use ilLPStatus;
-use ilObjUser;
 use ilSrLearningProgressResetPlugin;
 use srag\DIC\SrLearningProgressReset\DICTrait;
 use srag\Plugins\SrLearningProgressReset\Utils\SrLearningProgressResetTrait;
@@ -27,10 +24,6 @@ class LearningProgressResetJob extends ilCronJob
     const CRON_JOB_ID = ilSrLearningProgressResetPlugin::PLUGIN_ID;
     const LANG_MODULE = "learning_progress_reset_job";
     const PLUGIN_CLASS_NAME = ilSrLearningProgressResetPlugin::class;
-    /**
-     * @var ilObjUser[]
-     */
-    protected $user_instance_cache = [];
 
 
     /**
@@ -110,69 +103,29 @@ class LearningProgressResetJob extends ilCronJob
      */
     public function run() : ilCronJobResult
     {
-        $time = time();
-
         $result = new ilCronJobResult();
 
-        $all_settings = self::srLearningProgressReset()->learningProgressReset()->getAllSettings();
+        $methods = self::srLearningProgressReset()->learningProgressReset()->settings()->methods()->getEnabledMethods();
 
-        $count_users = 0;
-        $count_reset = 0;
+        $count_members = 0;
+        $count_learning_progress_reset = 0;
+        $count_set_date_to_today = 0;
+        $count_errors = 0;
 
-        foreach ($all_settings as $settings) {
-            foreach (
-                array_unique(array_merge($settings->getObject()->getMembersObject()->getMembers(),
-                    $settings->getObject()->getMembersObject()->getTutors(), $settings->getObject()->getMembersObject()->getAdmins())) as $user_id
-            ) {
-                $count_users++;
-
-                $user = $this->getUserInstance($user_id);
-
-                $udf_values = $user->getUserDefinedData();
-
-                if (empty($settings->getUdfField())
-                    || empty($udf_value_date = strval($udf_values["f_" . ($settings->getUdfField())]))
-                    || empty($udf_value_date
-                        = DateTime::createFromFormat(Settings::DATE_FORMAT, $udf_value_date))
-                ) {
-                    continue;
-                }
-
-                $udf_value_date->setTime(0, 0, 0, 0);
-
-                if (($diff = intval(($time - $udf_value_date->getTimestamp()) / (60 * 60 * 24))) !== $settings->getDays()) {
-                    continue;
-                }
-
-                ilLPStatus::writeStatus($settings->getObjId(), $user_id, ilLPStatus::LP_STATUS_NOT_ATTEMPTED);
-
-                $count_reset++;
-            }
+        foreach ($methods as $method) {
+            $method->resetLearningProgressOfMembers($count_members, $count_learning_progress_reset, $count_set_date_to_today, $count_errors);
         }
 
-        $result->setStatus(ilCronJobResult::STATUS_OK);
+        $result->setStatus($count_errors > 0 ? ilCronJobResult::STATUS_FAIL : ilCronJobResult::STATUS_OK);
 
         $result->setMessage(nl2br(self::plugin()->translate("result", self::LANG_MODULE, [
-            count($all_settings),
-            $count_users,
-            $count_reset
+            count($methods),
+            $count_members,
+            $count_learning_progress_reset,
+            $count_set_date_to_today,
+            $count_errors
         ]), false));
 
         return $result;
-    }
-
-
-    /**
-     * @param int $user_id
-     *
-     * @return ilObjUser
-     */
-    protected function getUserInstance(int $user_id) : ilObjUser
-    {
-        if (!isset($this->user_instance_cache[$user_id])) {
-            $this->user_instance_cache[$user_id] = new ilObjUser($user_id);
-        }
-
-        return $this->user_instance_cache[$user_id];
     }
 }

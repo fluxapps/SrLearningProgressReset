@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit26b4253cc8069af7c88ca0755f6cdb80
+class ComposerStaticInit43eeff49e1ef55faf3e82924c79dc47e
 {
     public static $files = array (
         'a858000df660e132873772a2024a10a5' => __DIR__ . '/..' . '/srag/dic/src/PHPVersionChecker.php',
@@ -130,11 +130,19 @@ class ComposerStaticInit26b4253cc8069af7c88ca0755f6cdb80
         'srag\\Plugins\\SrLearningProgressReset\\Job\\Factory' => __DIR__ . '/../..' . '/src/Job/Factory.php',
         'srag\\Plugins\\SrLearningProgressReset\\Job\\Repository' => __DIR__ . '/../..' . '/src/Job/Repository.php',
         'srag\\Plugins\\SrLearningProgressReset\\LearningProgressReset\\Factory' => __DIR__ . '/../..' . '/src/LearningProgressReset/Factory.php',
-        'srag\\Plugins\\SrLearningProgressReset\\LearningProgressReset\\Form\\FormBuilder' => __DIR__ . '/../..' . '/src/LearningProgressReset/Form/FormBuilder.php',
         'srag\\Plugins\\SrLearningProgressReset\\LearningProgressReset\\LearningProgressResetJob' => __DIR__ . '/../..' . '/src/LearningProgressReset/LearningProgressResetJob.php',
-        'srag\\Plugins\\SrLearningProgressReset\\LearningProgressReset\\LearningProgressResetSettingsGUI' => __DIR__ . '/../..' . '/src/LearningProgressReset/class.LearningProgressResetSettingsGUI.php',
         'srag\\Plugins\\SrLearningProgressReset\\LearningProgressReset\\Repository' => __DIR__ . '/../..' . '/src/LearningProgressReset/Repository.php',
-        'srag\\Plugins\\SrLearningProgressReset\\LearningProgressReset\\Settings' => __DIR__ . '/../..' . '/src/LearningProgressReset/Settings.php',
+        'srag\\Plugins\\SrLearningProgressReset\\LearningProgressReset\\Settings\\Factory' => __DIR__ . '/../..' . '/src/LearningProgressReset/Settings/Factory.php',
+        'srag\\Plugins\\SrLearningProgressReset\\LearningProgressReset\\Settings\\Form\\FormBuilder' => __DIR__ . '/../..' . '/src/LearningProgressReset/Settings/Form/FormBuilder.php',
+        'srag\\Plugins\\SrLearningProgressReset\\LearningProgressReset\\Settings\\LearningProgressResetSettingsGUI' => __DIR__ . '/../..' . '/src/LearningProgressReset/Settings/class.LearningProgressResetSettingsGUI.php',
+        'srag\\Plugins\\SrLearningProgressReset\\LearningProgressReset\\Settings\\Method\\AbstractMethod' => __DIR__ . '/../..' . '/src/LearningProgressReset/Settings/Method/AbstractMethod.php',
+        'srag\\Plugins\\SrLearningProgressReset\\LearningProgressReset\\Settings\\Method\\DisabledMethod' => __DIR__ . '/../..' . '/src/LearningProgressReset/Settings/Method/DisabledMethod.php',
+        'srag\\Plugins\\SrLearningProgressReset\\LearningProgressReset\\Settings\\Method\\ExternalDateMethod' => __DIR__ . '/../..' . '/src/LearningProgressReset/Settings/Method/ExternalDateMethod.php',
+        'srag\\Plugins\\SrLearningProgressReset\\LearningProgressReset\\Settings\\Method\\Factory' => __DIR__ . '/../..' . '/src/LearningProgressReset/Settings/Method/Factory.php',
+        'srag\\Plugins\\SrLearningProgressReset\\LearningProgressReset\\Settings\\Method\\Repository' => __DIR__ . '/../..' . '/src/LearningProgressReset/Settings/Method/Repository.php',
+        'srag\\Plugins\\SrLearningProgressReset\\LearningProgressReset\\Settings\\Method\\UdfFieldDateMethod' => __DIR__ . '/../..' . '/src/LearningProgressReset/Settings/Method/UdfFieldDateMethod.php',
+        'srag\\Plugins\\SrLearningProgressReset\\LearningProgressReset\\Settings\\Repository' => __DIR__ . '/../..' . '/src/LearningProgressReset/Settings/Repository.php',
+        'srag\\Plugins\\SrLearningProgressReset\\LearningProgressReset\\Settings\\Settings' => __DIR__ . '/../..' . '/src/LearningProgressReset/Settings/Settings.php',
         'srag\\Plugins\\SrLearningProgressReset\\Repository' => __DIR__ . '/../..' . '/src/Repository.php',
         'srag\\Plugins\\SrLearningProgressReset\\Utils\\SrLearningProgressResetTrait' => __DIR__ . '/../..' . '/src/Utils/SrLearningProgressResetTrait.php',
         'srag\\RemovePluginDataConfirm\\SrLearningProgressReset\\BasePluginUninstallTrait' => __DIR__ . '/..' . '/srag/removeplugindataconfirm/src/BasePluginUninstallTrait.php',
@@ -146,9 +154,9 @@ class ComposerStaticInit26b4253cc8069af7c88ca0755f6cdb80
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit26b4253cc8069af7c88ca0755f6cdb80::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit26b4253cc8069af7c88ca0755f6cdb80::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInit26b4253cc8069af7c88ca0755f6cdb80::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit43eeff49e1ef55faf3e82924c79dc47e::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit43eeff49e1ef55faf3e82924c79dc47e::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInit43eeff49e1ef55faf3e82924c79dc47e::$classMap;
 
         }, null, ClassLoader::class);
     }
