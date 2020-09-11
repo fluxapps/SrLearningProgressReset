@@ -1,11 +1,18 @@
-learning_progress_reset_job_description#:#Resets the learning progress of users who have reached the days using a UDF field
-learning_progress_reset_job_result#:#Objects : %1$s\nUsers : %2$s\nReset : %3$s
+learning_progress_reset_job_description#:#Resets the learning progress of users who have reached the days
+learning_progress_reset_job_result#:#Objects : %1$s\nMembers : %2$s\nReset Learning progress : %3$s\nSet date to today : %4$s\nOccurred errors (See in log) : %5$s
 learning_progress_reset_job_title#:#Reset learning progress
 learning_progress_reset_settings_days#:#Days
 learning_progress_reset_settings_days_info#:#When older than
-learning_progress_reset_settings_enabled#:#Enabled
+learning_progress_reset_settings_disabled#:#Disabled
+learning_progress_reset_settings_external_date#:#External date
+learning_progress_reset_settings_external_date_info#:#Json server
+learning_progress_reset_settings_external_date_url#:#Url
+learning_progress_reset_settings_external_date_url_debug_info#:#A debug Docker server can be used for development purposes - See plugin readme
+learning_progress_reset_settings_method#:#"Get date" method
 learning_progress_reset_settings_save#:#Save
 learning_progress_reset_settings_saved#:#Saved
 learning_progress_reset_settings_settings#:#Auto reset learning progress
-learning_progress_reset_settings_udf_field#:#UDF field
-learning_progress_reset_settings_udf_field_info#:#Based date (%s formatted) in UDF field
+learning_progress_reset_settings_set_date_to_today_after_reset#:#Set date to today
+learning_progress_reset_settings_set_date_to_today_after_reset_info#:#When reset learning progress
+learning_progress_reset_settings_udf_field_date#:#UDF date field
+learning_progress_reset_settings_udf_field_date_info#:#Based date (%s formatted) in UDF field

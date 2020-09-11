@@ -1,15 +1,16 @@
 <?php
 
-namespace srag\Plugins\SrLearningProgressReset\LearningProgressReset;
+namespace srag\Plugins\SrLearningProgressReset\LearningProgressReset\Settings;
 
 use ilSrLearningProgressResetPlugin;
 use srag\DIC\SrLearningProgressReset\DICTrait;
+use srag\Plugins\SrLearningProgressReset\LearningProgressReset\Settings\Form\FormBuilder;
 use srag\Plugins\SrLearningProgressReset\Utils\SrLearningProgressResetTrait;
 
 /**
  * Class Factory
  *
- * @package srag\Plugins\SrLearningProgressReset\LearningProgressReset
+ * @package srag\Plugins\SrLearningProgressReset\LearningProgressReset\Settings
  *
  * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */
@@ -49,12 +50,26 @@ final class Factory
 
 
     /**
-     * @return LearningProgressResetJob
+     * @param LearningProgressResetSettingsGUI $parent
+     * @param Settings                         $settings
+     *
+     * @return FormBuilder
      */
-    public function newJobInstance() : LearningProgressResetJob
+    public function newFormBuilderInstance(LearningProgressResetSettingsGUI $parent, Settings $settings) : FormBuilder
     {
-        $job = new LearningProgressResetJob();
+        $form = new FormBuilder($parent, $settings);
 
-        return $job;
+        return $form;
+    }
+
+
+    /**
+     * @return Settings
+     */
+    public function newInstance() : Settings
+    {
+        $settings = new Settings();
+
+        return $settings;
     }
 }

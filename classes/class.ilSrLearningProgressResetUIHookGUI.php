@@ -1,7 +1,7 @@
 <?php
 
 use srag\DIC\SrLearningProgressReset\DICTrait;
-use srag\Plugins\SrLearningProgressReset\LearningProgressReset\LearningProgressResetSettingsGUI;
+use srag\Plugins\SrLearningProgressReset\LearningProgressReset\Settings\LearningProgressResetSettingsGUI;
 use srag\Plugins\SrLearningProgressReset\Utils\SrLearningProgressResetTrait;
 
 /**

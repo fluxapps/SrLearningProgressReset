@@ -1,6 +1,6 @@
 <?php
 
-namespace srag\Plugins\SrLearningProgressReset\LearningProgressReset;
+namespace srag\Plugins\SrLearningProgressReset\LearningProgressReset\Settings;
 
 use ActiveRecord;
 use arConnector;
@@ -8,12 +8,13 @@ use ilObject;
 use ilObjectFactory;
 use ilSrLearningProgressResetPlugin;
 use srag\DIC\SrLearningProgressReset\DICTrait;
+use srag\Plugins\SrLearningProgressReset\LearningProgressReset\Settings\Method\DisabledMethod;
 use srag\Plugins\SrLearningProgressReset\Utils\SrLearningProgressResetTrait;
 
 /**
  * Class Settings
  *
- * @package srag\Plugins\SrLearningProgressReset\LearningProgressReset
+ * @package srag\Plugins\SrLearningProgressReset\LearningProgressReset\Settings
  *
  * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */
@@ -23,8 +24,6 @@ class Settings extends ActiveRecord
     use DICTrait;
     use SrLearningProgressResetTrait;
 
-    const DATE_FORMAT = "Y-m-d";
-    const OBJECT_TYPES = ["crs"];
     const PLUGIN_CLASS_NAME = ilSrLearningProgressResetPlugin::class;
     const TABLE_NAME = ilSrLearningProgressResetPlugin::PLUGIN_ID . "_obj_set";
     /**
@@ -37,14 +36,21 @@ class Settings extends ActiveRecord
      */
     protected $days = 0;
     /**
-     * @var bool
+     * @var int
      *
      * @con_has_field    true
      * @con_fieldtype    integer
-     * @con_length       1
      * @con_is_notnull   true
      */
-    protected $enabled = false;
+    protected $enabled = DisabledMethod::ID;
+    /**
+     * @var string
+     *
+     * @con_has_field   true
+     * @con_fieldtype   text
+     * @con_is_notnull  true
+     */
+    protected $external_date_url = "";
     /**
      * @var int
      *
@@ -59,6 +65,15 @@ class Settings extends ActiveRecord
      * @var ilObject|null
      */
     protected $object = null;
+    /**
+     * @var bool
+     *
+     * @con_has_field    true
+     * @con_fieldtype    integer
+     * @con_length       1
+     * @con_is_notnull   true
+     */
+    protected $set_date_to_today_after_reset = false;
     /**
      * @var int
      *
@@ -75,7 +90,7 @@ class Settings extends ActiveRecord
      * @param int              $primary_key_value
      * @param arConnector|null $connector
      */
-    public function __construct(/*int*/ $primary_key_value = 0, arConnector $connector = null)
+    public function __construct(/*int*/ $primary_key_value = 0, /*?*/ arConnector $connector = null)
     {
         parent::__construct($primary_key_value, $connector);
     }
@@ -120,6 +135,33 @@ class Settings extends ActiveRecord
 
 
     /**
+     * @return string
+     */
+    public function getExternalDateUrl() : string
+    {
+        return $this->external_date_url;
+    }
+
+
+    /**
+     * @param string $external_date_url
+     */
+    public function setExternalDateUrl(string $external_date_url)/* : void*/
+    {
+        $this->external_date_url = $external_date_url;
+    }
+
+
+    /**
+     * @return int
+     */
+    public function getMethod() : int
+    {
+        return $this->enabled;
+    }
+
+
+    /**
      * @return int
      */
     public function getObjId() : int
@@ -153,36 +195,45 @@ class Settings extends ActiveRecord
     /**
      * @return int
      */
-    public function getUdfField() : int
+    public function getUdfFieldDate() : int
     {
         return $this->udf_field;
     }
 
 
     /**
-     * @param int $udf_field
-     */
-    public function setUdfField(int $udf_field)/* : void*/
-    {
-        $this->udf_field = $udf_field;
-    }
-
-
-    /**
      * @return bool
      */
-    public function isEnabled() : bool
+    public function isSetDateToTodayAfterReset() : bool
     {
-        return $this->enabled;
+        return $this->set_date_to_today_after_reset;
     }
 
 
     /**
-     * @param bool $enabled
+     * @param bool $set_date_to_today_after_reset
      */
-    public function setEnabled(bool $enabled)/* : void*/
+    public function setSetDateToTodayAfterReset(bool $set_date_to_today_after_reset)/* : void*/
     {
-        $this->enabled = $enabled;
+        $this->set_date_to_today_after_reset = $set_date_to_today_after_reset;
+    }
+
+
+    /**
+     * @param int $method
+     */
+    public function setMethod(int $method)/* : void*/
+    {
+        $this->enabled = $method;
+    }
+
+
+    /**
+     * @param int $udf_field_date
+     */
+    public function setUdfFieldDate(int $udf_field_date)/* : void*/
+    {
+        $this->udf_field = $udf_field_date;
     }
 
 
@@ -194,7 +245,7 @@ class Settings extends ActiveRecord
         $field_value = $this->{$field_name};
 
         switch ($field_name) {
-            case "enabled":
+            case "set_date_to_today_after_reset":
                 return ($field_value ? 1 : 0);
 
             default:
@@ -209,7 +260,7 @@ class Settings extends ActiveRecord
     public function wakeUp(/*string*/ $field_name, $field_value)
     {
         switch ($field_name) {
-            case "enabled":
+            case "set_date_to_today_after_reset":
                 return boolval($field_value);
 
             default:

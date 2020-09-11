@@ -1,15 +1,16 @@
 <?php
 
-namespace srag\Plugins\SrLearningProgressReset\LearningProgressReset;
+namespace srag\Plugins\SrLearningProgressReset\LearningProgressReset\Settings\Method;
 
 use ilSrLearningProgressResetPlugin;
 use srag\DIC\SrLearningProgressReset\DICTrait;
+use srag\Plugins\SrLearningProgressReset\LearningProgressReset\Settings\Settings;
 use srag\Plugins\SrLearningProgressReset\Utils\SrLearningProgressResetTrait;
 
 /**
  * Class Factory
  *
- * @package srag\Plugins\SrLearningProgressReset\LearningProgressReset
+ * @package srag\Plugins\SrLearningProgressReset\LearningProgressReset\Settings\Method
  *
  * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */
@@ -19,6 +20,12 @@ final class Factory
     use DICTrait;
     use SrLearningProgressResetTrait;
 
+    const METHODS
+        = [
+            DisabledMethod::ID     => DisabledMethod::class,
+            ExternalDateMethod::ID => ExternalDateMethod::class,
+            UdfFieldDateMethod::ID => UdfFieldDateMethod::class
+        ];
     const PLUGIN_CLASS_NAME = ilSrLearningProgressResetPlugin::class;
     /**
      * @var self|null
@@ -49,12 +56,16 @@ final class Factory
 
 
     /**
-     * @return LearningProgressResetJob
+     * @param Settings $settings
+     *
+     * @return AbstractMethod
      */
-    public function newJobInstance() : LearningProgressResetJob
+    public function newInstance(Settings $settings) : AbstractMethod
     {
-        $job = new LearningProgressResetJob();
+        $class = self::METHODS[$settings->getMethod()];
 
-        return $job;
+        $method = new $class($settings);
+
+        return $method;
     }
 }

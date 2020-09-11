@@ -1,6 +1,6 @@
 # SrLearningProgressReset ILIAS Plugin Description
 
-Resets the learning progress of users who have reached the days using a UDF field
+Resets the learning progress of users who have reached the days
 
 Object config:
 
