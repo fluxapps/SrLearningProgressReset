@@ -1,11 +1,18 @@
-learning_progress_reset_job_description#:#Setzt den Lernfortschritt von Benutzer zurück, die die Tage anhand des UDF-Felds erreicht haben
-learning_progress_reset_job_result#:#Objekte : %1$s\nBenutzer : %2$s\nZurückgesetzt : %3$s
+learning_progress_reset_job_description#:#Setzt den Lernfortschritt von Benutzer zurück, die die Tage erreicht haben
+learning_progress_reset_job_result#:#Objekte : %1$s\nMitglieder : %2$s\nLernfortschritt zurückgesetzt : %3$s\nDatum auf heute gesetzt : %4$s\nAufgetretene Fehler (Siehe im Log) : %5$s
 learning_progress_reset_job_title#:#Lernfortschritt zurücksetzen
 learning_progress_reset_settings_days#:#Tage
 learning_progress_reset_settings_days_info#:#Wenn älter als
-learning_progress_reset_settings_enabled#:#Aktiviert
+learning_progress_reset_settings_disabled#:#Deaktiviert
+learning_progress_reset_settings_external_date#:#Externes Datum
+learning_progress_reset_settings_external_date_info#:#JSON-Server
+learning_progress_reset_settings_external_date_url#:#URL
+learning_progress_reset_settings_external_date_url_debug_info#:#Für Entwicklungszwecke kann ein Debug-Docker-Server verwendet werden - Siehe Plugin-Readme
+learning_progress_reset_settings_method#:#"Datum erhalten"-Methode
 learning_progress_reset_settings_save#:#Speichern
 learning_progress_reset_settings_saved#:#Gespeichert
 learning_progress_reset_settings_settings#:#Lernfortschritt automatisch zurücksetzen
-learning_progress_reset_settings_udf_field#:#UDF-Feld
-learning_progress_reset_settings_udf_field_info#:#Anhand Datum (%s formatiert) im UDF-Feld
+learning_progress_reset_settings_set_date_to_today_after_reset#:#Datum auf heute setzen
+learning_progress_reset_settings_set_date_to_today_after_reset_info#:#Wenn Lernfortschritt zurückgesetzt
+learning_progress_reset_settings_udf_field_date#:#UDF-Datums-Feld
+learning_progress_reset_settings_udf_field_date_info#:#Anhand Datum (%s formatiert) im UDF-Feld

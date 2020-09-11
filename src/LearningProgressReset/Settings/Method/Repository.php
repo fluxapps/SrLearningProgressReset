@@ -1,16 +1,16 @@
 <?php
 
-namespace srag\Plugins\SrLearningProgressReset\LearningProgressReset;
+namespace srag\Plugins\SrLearningProgressReset\LearningProgressReset\Settings\Method;
 
 use ilSrLearningProgressResetPlugin;
 use srag\DIC\SrLearningProgressReset\DICTrait;
-use srag\Plugins\SrLearningProgressReset\LearningProgressReset\Settings\Repository as SettingsRepository;
+use srag\Plugins\SrLearningProgressReset\LearningProgressReset\Settings\Settings;
 use srag\Plugins\SrLearningProgressReset\Utils\SrLearningProgressResetTrait;
 
 /**
  * Class Repository
  *
- * @package srag\Plugins\SrLearningProgressReset\LearningProgressReset
+ * @package srag\Plugins\SrLearningProgressReset\LearningProgressReset\Settings\Method
  *
  * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */
@@ -20,7 +20,6 @@ final class Repository
     use DICTrait;
     use SrLearningProgressResetTrait;
 
-    const OBJECT_TYPES = ["crs"];
     const PLUGIN_CLASS_NAME = ilSrLearningProgressResetPlugin::class;
     /**
      * @var self|null
@@ -55,7 +54,7 @@ final class Repository
      */
     public function dropTables()/* : void*/
     {
-        $this->settings()->dropTables();
+
     }
 
 
@@ -69,15 +68,13 @@ final class Repository
 
 
     /**
-     * @param int $user_id
-     * @param int $obj_ref_id
-     *
-     * @return bool
+     * @return AbstractMethod[]
      */
-    public function hasAccess(int $user_id, int $obj_ref_id) : bool
+    public function getEnabledMethods() : array
     {
-        return (in_array(self::dic()->objDataCache()->lookupType(self::dic()->objDataCache()->lookupObjId($obj_ref_id)), self::OBJECT_TYPES)
-            && self::dic()->access()->checkAccessOfUser($user_id, "write", "", $obj_ref_id));
+        return array_map(function (Settings $settings) : AbstractMethod {
+            return $this->factory()->newInstance($settings);
+        }, self::srLearningProgressReset()->learningProgressReset()->settings()->getEnabledSettings());
     }
 
 
@@ -86,15 +83,6 @@ final class Repository
      */
     public function installTables()/* : void*/
     {
-        $this->settings()->installTables();
-    }
 
-
-    /**
-     * @return SettingsRepository
-     */
-    public function settings() : SettingsRepository
-    {
-        return SettingsRepository::getInstance();
     }
 }
