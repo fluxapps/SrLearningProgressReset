@@ -4,6 +4,7 @@ require_once __DIR__ . "/../vendor/autoload.php";
 
 use ILIAS\DI\Container;
 use srag\CustomInputGUIs\SrLearningProgressReset\Loader\CustomInputGUIsLoaderDetector;
+use srag\DIC\SrLearningProgressReset\DevTools\DevToolsCtrl;
 use srag\Plugins\SrLearningProgressReset\Utils\SrLearningProgressResetTrait;
 use srag\RemovePluginDataConfirm\SrLearningProgressReset\PluginUninstallTrait;
 
@@ -18,13 +19,22 @@ class ilSrLearningProgressResetPlugin extends ilUserInterfaceHookPlugin
     use PluginUninstallTrait;
     use SrLearningProgressResetTrait;
 
+    const PLUGIN_CLASS_NAME = self::class;
     const PLUGIN_ID = "srleprre";
     const PLUGIN_NAME = "SrLearningProgressReset";
-    const PLUGIN_CLASS_NAME = self::class;
     /**
      * @var self|null
      */
     protected static $instance = null;
+
+
+    /**
+     * ilSrLearningProgressResetPlugin constructor
+     */
+    public function __construct()
+    {
+        parent::__construct();
+    }
 
 
     /**
@@ -41,11 +51,11 @@ class ilSrLearningProgressResetPlugin extends ilUserInterfaceHookPlugin
 
 
     /**
-     * ilSrLearningProgressResetPlugin constructor
+     * @inheritDoc
      */
-    public function __construct()
+    public function exchangeUIRendererAfterInitialization(Container $dic) : Closure
     {
-        parent::__construct();
+        return CustomInputGUIsLoaderDetector::exchangeUIRendererAfterInitialization();
     }
 
 
@@ -66,6 +76,8 @@ class ilSrLearningProgressResetPlugin extends ilUserInterfaceHookPlugin
         parent::updateLanguages($a_lang_keys);
 
         $this->installRemovePluginDataConfirmLanguages();
+
+        DevToolsCtrl::installLanguages(self::plugin());
     }
 
 
@@ -81,8 +93,8 @@ class ilSrLearningProgressResetPlugin extends ilUserInterfaceHookPlugin
     /**
      * @inheritDoc
      */
-    public function exchangeUIRendererAfterInitialization(Container $dic) : Closure
+    protected function shouldUseOneUpdateStepOnly() : bool
     {
-        return CustomInputGUIsLoaderDetector::exchangeUIRendererAfterInitialization();
+        return true;
     }
 }

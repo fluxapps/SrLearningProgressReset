@@ -10,5 +10,5 @@ return array(
     'srag\\Plugins\\SrLearningProgressReset\\' => array($baseDir . '/src'),
     'srag\\LibrariesNamespaceChanger\\' => array($vendorDir . '/srag/librariesnamespacechanger/src'),
     'srag\\DIC\\SrLearningProgressReset\\' => array($vendorDir . '/srag/dic/src'),
-    'srag\\CustomInputGUIs\\' => array($vendorDir . '/srag/custominputguis/src'),
+    'srag\\CustomInputGUIs\\SrLearningProgressReset\\' => array($vendorDir . '/srag/custominputguis/src'),
 );

@@ -28,6 +28,15 @@ final class Factory
 
 
     /**
+     * Factory constructor
+     */
+    private function __construct()
+    {
+
+    }
+
+
+    /**
      * @return self
      */
     public static function getInstance() : self
@@ -41,36 +50,27 @@ final class Factory
 
 
     /**
-     * Factory constructor
-     */
-    private function __construct()
-    {
-
-    }
-
-
-    /**
-     * @return LearningProgressResetSettings
-     */
-    public function newInstance() : LearningProgressResetSettings
-    {
-        $learning_progress_reset_settings = new LearningProgressResetSettings();
-
-        return $learning_progress_reset_settings;
-    }
-
-
-    /**
      * @param LearningProgressResetSettingsGUI $parent
-     * @param LearningProgressResetSettings    $learning_progress_reset_settings
+     * @param Settings                         $settings
      *
      * @return FormBuilder
      */
-    public function newFormBuilderInstance(LearningProgressResetSettingsGUI $parent, LearningProgressResetSettings $learning_progress_reset_settings) : FormBuilder
+    public function newFormBuilderInstance(LearningProgressResetSettingsGUI $parent, Settings $settings) : FormBuilder
     {
-        $form = new FormBuilder($parent, $learning_progress_reset_settings);
+        $form = new FormBuilder($parent, $settings);
 
         return $form;
+    }
+
+
+    /**
+     * @return Settings
+     */
+    public function newInstance() : Settings
+    {
+        $settings = new Settings();
+
+        return $settings;
     }
 
 

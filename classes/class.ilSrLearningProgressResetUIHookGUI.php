@@ -15,10 +15,10 @@ class ilSrLearningProgressResetUIHookGUI extends ilUIHookPluginGUI
     use DICTrait;
     use SrLearningProgressResetTrait;
 
-    const PLUGIN_CLASS_NAME = ilSrLearningProgressResetPlugin::class;
-    const PAR_SUB_TABS = "sub_tabs";
     const GET_PARAM_REF_ID = "ref_id";
     const GET_PARAM_TARGET = "target";
+    const PAR_SUB_TABS = "sub_tabs";
+    const PLUGIN_CLASS_NAME = ilSrLearningProgressResetPlugin::class;
 
 
     /**

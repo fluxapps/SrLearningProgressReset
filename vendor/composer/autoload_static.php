@@ -6,6 +6,10 @@ namespace Composer\Autoload;
 
 class ComposerStaticInit26b4253cc8069af7c88ca0755f6cdb80
 {
+    public static $files = array (
+        'a858000df660e132873772a2024a10a5' => __DIR__ . '/..' . '/srag/dic/src/PHPVersionChecker.php',
+    );
+
     public static $prefixLengthsPsr4 = array (
         's' => 
         array (
@@ -13,7 +17,7 @@ class ComposerStaticInit26b4253cc8069af7c88ca0755f6cdb80
             'srag\\Plugins\\SrLearningProgressReset\\' => 37,
             'srag\\LibrariesNamespaceChanger\\' => 31,
             'srag\\DIC\\SrLearningProgressReset\\' => 33,
-            'srag\\CustomInputGUIs\\' => 21,
+            'srag\\CustomInputGUIs\\SrLearningProgressReset\\' => 45,
         ),
     );
 
@@ -34,13 +38,14 @@ class ComposerStaticInit26b4253cc8069af7c88ca0755f6cdb80
         array (
             0 => __DIR__ . '/..' . '/srag/dic/src',
         ),
-        'srag\\CustomInputGUIs\\' => 
+        'srag\\CustomInputGUIs\\SrLearningProgressReset\\' => 
         array (
             0 => __DIR__ . '/..' . '/srag/custominputguis/src',
         ),
     );
 
     public static $classMap = array (
+        'ilSrLearningProgressResetConfigGUI' => __DIR__ . '/../..' . '/classes/class.ilSrLearningProgressResetConfigGUI.php',
         'ilSrLearningProgressResetPlugin' => __DIR__ . '/../..' . '/classes/class.ilSrLearningProgressResetPlugin.php',
         'ilSrLearningProgressResetUIHookGUI' => __DIR__ . '/../..' . '/classes/class.ilSrLearningProgressResetUIHookGUI.php',
         'srag\\CustomInputGUIs\\SrLearningProgressReset\\CheckboxInputGUI\\AjaxCheckbox' => __DIR__ . '/..' . '/srag/custominputguis/src/AjaxCheckbox/AjaxCheckbox.php',
@@ -59,11 +64,6 @@ class ComposerStaticInit26b4253cc8069af7c88ca0755f6cdb80
         'srag\\CustomInputGUIs\\SrLearningProgressReset\\InputGUIWrapperUIInputComponent\\InputGUIWrapperConstraintTrait' => __DIR__ . '/..' . '/srag/custominputguis/src/InputGUIWrapperUIInputComponent/InputGUIWrapperConstraintTrait.php',
         'srag\\CustomInputGUIs\\SrLearningProgressReset\\InputGUIWrapperUIInputComponent\\InputGUIWrapperUIInputComponent' => __DIR__ . '/..' . '/srag/custominputguis/src/InputGUIWrapperUIInputComponent/InputGUIWrapperUIInputComponent.php',
         'srag\\CustomInputGUIs\\SrLearningProgressReset\\InputGUIWrapperUIInputComponent\\Renderer' => __DIR__ . '/..' . '/srag/custominputguis/src/InputGUIWrapperUIInputComponent/Renderer.php',
-        'srag\\CustomInputGUIs\\SrLearningProgressReset\\LearningProgressPieUI\\AbstractLearningProgressPieUI' => __DIR__ . '/..' . '/srag/custominputguis/src/LearningProgressPieUI/AbstractLearningProgressPieUI.php',
-        'srag\\CustomInputGUIs\\SrLearningProgressReset\\LearningProgressPieUI\\CountLearningProgressPieUI' => __DIR__ . '/..' . '/srag/custominputguis/src/LearningProgressPieUI/CountLearningProgressPieUI.php',
-        'srag\\CustomInputGUIs\\SrLearningProgressReset\\LearningProgressPieUI\\LearningProgressPieUI' => __DIR__ . '/..' . '/srag/custominputguis/src/LearningProgressPieUI/LearningProgressPieUI.php',
-        'srag\\CustomInputGUIs\\SrLearningProgressReset\\LearningProgressPieUI\\ObjIdsLearningProgressPieUI' => __DIR__ . '/..' . '/srag/custominputguis/src/LearningProgressPieUI/ObjIdsLearningProgressPieUI.php',
-        'srag\\CustomInputGUIs\\SrLearningProgressReset\\LearningProgressPieUI\\UsrIdsLearningProgressPieUI' => __DIR__ . '/..' . '/srag/custominputguis/src/LearningProgressPieUI/UsrIdsLearningProgressPieUI.php',
         'srag\\CustomInputGUIs\\SrLearningProgressReset\\Loader\\CustomInputGUIsLoaderDetector' => __DIR__ . '/..' . '/srag/custominputguis/src/Loader/CustomInputGUIsLoaderDetector.php',
         'srag\\CustomInputGUIs\\SrLearningProgressReset\\MultiLineInputGUI\\MultiLineInputGUI' => __DIR__ . '/..' . '/srag/custominputguis/src/MultiLineInputGUI/MultiLineInputGUI.php',
         'srag\\CustomInputGUIs\\SrLearningProgressReset\\MultiLineNewInputGUI\\MultiLineNewInputGUI' => __DIR__ . '/..' . '/srag/custominputguis/src/MultiLineNewInputGUI/MultiLineNewInputGUI.php',
@@ -76,28 +76,6 @@ class ComposerStaticInit26b4253cc8069af7c88ca0755f6cdb80
         'srag\\CustomInputGUIs\\SrLearningProgressReset\\MultiSelectSearchNewInputGUI\\OrgUnitAjaxAutoCompleteCtrl' => __DIR__ . '/..' . '/srag/custominputguis/src/MultiSelectSearchNewInputGUI/class.OrgUnitAjaxAutoCompleteCtrl.php',
         'srag\\CustomInputGUIs\\SrLearningProgressReset\\MultiSelectSearchNewInputGUI\\UsersAjaxAutoCompleteCtrl' => __DIR__ . '/..' . '/srag/custominputguis/src/MultiSelectSearchNewInputGUI/class.UsersAjaxAutoCompleteCtrl.php',
         'srag\\CustomInputGUIs\\SrLearningProgressReset\\NumberInputGUI\\NumberInputGUI' => __DIR__ . '/..' . '/srag/custominputguis/src/NumberInputGUI/NumberInputGUI.php',
-        'srag\\CustomInputGUIs\\SrLearningProgressReset\\PieChart\\Component\\LegendEntry' => __DIR__ . '/..' . '/srag/custominputguis/src/PieChart/Component/LegendEntry.php',
-        'srag\\CustomInputGUIs\\SrLearningProgressReset\\PieChart\\Component\\PieChart' => __DIR__ . '/..' . '/srag/custominputguis/src/PieChart/Component/PieChart.php',
-        'srag\\CustomInputGUIs\\SrLearningProgressReset\\PieChart\\Component\\PieChartItem' => __DIR__ . '/..' . '/srag/custominputguis/src/PieChart/Component/PieChartItem.php',
-        'srag\\CustomInputGUIs\\SrLearningProgressReset\\PieChart\\Component\\Section' => __DIR__ . '/..' . '/srag/custominputguis/src/PieChart/Component/Section.php',
-        'srag\\CustomInputGUIs\\SrLearningProgressReset\\PieChart\\Component\\SectionValue' => __DIR__ . '/..' . '/srag/custominputguis/src/PieChart/Component/SectionValue.php',
-        'srag\\CustomInputGUIs\\SrLearningProgressReset\\PieChart\\Implementation\\LegendEntry' => __DIR__ . '/..' . '/srag/custominputguis/src/PieChart/Implementation/LegendEntry.php',
-        'srag\\CustomInputGUIs\\SrLearningProgressReset\\PieChart\\Implementation\\PieChart' => __DIR__ . '/..' . '/srag/custominputguis/src/PieChart/Implementation/PieChart.php',
-        'srag\\CustomInputGUIs\\SrLearningProgressReset\\PieChart\\Implementation\\PieChartItem' => __DIR__ . '/..' . '/srag/custominputguis/src/PieChart/Implementation/PieChartItem.php',
-        'srag\\CustomInputGUIs\\SrLearningProgressReset\\PieChart\\Implementation\\Renderer' => __DIR__ . '/..' . '/srag/custominputguis/src/PieChart/Implementation/Renderer.php',
-        'srag\\CustomInputGUIs\\SrLearningProgressReset\\PieChart\\Implementation\\Section' => __DIR__ . '/..' . '/srag/custominputguis/src/PieChart/Implementation/Section.php',
-        'srag\\CustomInputGUIs\\SrLearningProgressReset\\PieChart\\Implementation\\SectionValue' => __DIR__ . '/..' . '/srag/custominputguis/src/PieChart/Implementation/SectionValue.php',
-        'srag\\CustomInputGUIs\\SrLearningProgressReset\\ProgressMeter\\Component\\Factory' => __DIR__ . '/..' . '/srag/custominputguis/src/ProgressMeter/Component/Factory.php',
-        'srag\\CustomInputGUIs\\SrLearningProgressReset\\ProgressMeter\\Component\\FixedSize' => __DIR__ . '/..' . '/srag/custominputguis/src/ProgressMeter/Component/FixedSize.php',
-        'srag\\CustomInputGUIs\\SrLearningProgressReset\\ProgressMeter\\Component\\Mini' => __DIR__ . '/..' . '/srag/custominputguis/src/ProgressMeter/Component/Mini.php',
-        'srag\\CustomInputGUIs\\SrLearningProgressReset\\ProgressMeter\\Component\\ProgressMeter' => __DIR__ . '/..' . '/srag/custominputguis/src/ProgressMeter/Component/ProgressMeter.php',
-        'srag\\CustomInputGUIs\\SrLearningProgressReset\\ProgressMeter\\Component\\Standard' => __DIR__ . '/..' . '/srag/custominputguis/src/ProgressMeter/Component/Standard.php',
-        'srag\\CustomInputGUIs\\SrLearningProgressReset\\ProgressMeter\\Implementation\\Factory' => __DIR__ . '/..' . '/srag/custominputguis/src/ProgressMeter/Implementation/Factory.php',
-        'srag\\CustomInputGUIs\\SrLearningProgressReset\\ProgressMeter\\Implementation\\FixedSize' => __DIR__ . '/..' . '/srag/custominputguis/src/ProgressMeter/Implementation/FixedSize.php',
-        'srag\\CustomInputGUIs\\SrLearningProgressReset\\ProgressMeter\\Implementation\\Mini' => __DIR__ . '/..' . '/srag/custominputguis/src/ProgressMeter/Implementation/Mini.php',
-        'srag\\CustomInputGUIs\\SrLearningProgressReset\\ProgressMeter\\Implementation\\ProgressMeter' => __DIR__ . '/..' . '/srag/custominputguis/src/ProgressMeter/Implementation/ProgressMeter.php',
-        'srag\\CustomInputGUIs\\SrLearningProgressReset\\ProgressMeter\\Implementation\\Renderer' => __DIR__ . '/..' . '/srag/custominputguis/src/ProgressMeter/Implementation/Renderer.php',
-        'srag\\CustomInputGUIs\\SrLearningProgressReset\\ProgressMeter\\Implementation\\Standard' => __DIR__ . '/..' . '/srag/custominputguis/src/ProgressMeter/Implementation/Standard.php',
         'srag\\CustomInputGUIs\\SrLearningProgressReset\\PropertyFormGUI\\ConfigPropertyFormGUI' => __DIR__ . '/..' . '/srag/custominputguis/src/PropertyFormGUI/ConfigPropertyFormGUI.php',
         'srag\\CustomInputGUIs\\SrLearningProgressReset\\PropertyFormGUI\\Exception\\PropertyFormGUIException' => __DIR__ . '/..' . '/srag/custominputguis/src/PropertyFormGUI/Exception/PropertyFormGUIException.php',
         'srag\\CustomInputGUIs\\SrLearningProgressReset\\PropertyFormGUI\\Items\\Items' => __DIR__ . '/..' . '/srag/custominputguis/src/PropertyFormGUI/Items/Items.php',
@@ -131,6 +109,7 @@ class ComposerStaticInit26b4253cc8069af7c88ca0755f6cdb80
         'srag\\DIC\\SrLearningProgressReset\\Database\\DatabaseInterface' => __DIR__ . '/..' . '/srag/dic/src/Database/DatabaseInterface.php',
         'srag\\DIC\\SrLearningProgressReset\\Database\\PdoContextHelper' => __DIR__ . '/..' . '/srag/dic/src/Database/PdoContextHelper.php',
         'srag\\DIC\\SrLearningProgressReset\\Database\\PdoStatementContextHelper' => __DIR__ . '/..' . '/srag/dic/src/Database/PdoStatementContextHelper.php',
+        'srag\\DIC\\SrLearningProgressReset\\DevTools\\DevToolsCtrl' => __DIR__ . '/..' . '/srag/dic/src/DevTools/class.DevToolsCtrl.php',
         'srag\\DIC\\SrLearningProgressReset\\Exception\\DICException' => __DIR__ . '/..' . '/srag/dic/src/Exception/DICException.php',
         'srag\\DIC\\SrLearningProgressReset\\Loader\\AbstractLoaderDetector' => __DIR__ . '/..' . '/srag/dic/src/Loader/AbstractLoaderDetector.php',
         'srag\\DIC\\SrLearningProgressReset\\Output\\Output' => __DIR__ . '/..' . '/srag/dic/src/Output/Output.php',
@@ -142,18 +121,20 @@ class ComposerStaticInit26b4253cc8069af7c88ca0755f6cdb80
         'srag\\DIC\\SrLearningProgressReset\\Util\\LibraryLanguageInstaller' => __DIR__ . '/..' . '/srag/dic/src/Util/LibraryLanguageInstaller.php',
         'srag\\DIC\\SrLearningProgressReset\\Version\\Version' => __DIR__ . '/..' . '/srag/dic/src/Version/Version.php',
         'srag\\DIC\\SrLearningProgressReset\\Version\\VersionInterface' => __DIR__ . '/..' . '/srag/dic/src/Version/VersionInterface.php',
+        'srag\\LibrariesNamespaceChanger\\GeneratePluginPhpAndXml' => __DIR__ . '/..' . '/srag/librariesnamespacechanger/src/GeneratePluginPhpAndXml.php',
         'srag\\LibrariesNamespaceChanger\\LibrariesNamespaceChanger' => __DIR__ . '/..' . '/srag/librariesnamespacechanger/src/LibrariesNamespaceChanger.php',
         'srag\\LibrariesNamespaceChanger\\PHP72Backport' => __DIR__ . '/..' . '/srag/librariesnamespacechanger/src/PHP72Backport.php',
         'srag\\LibrariesNamespaceChanger\\PHP7Backport' => __DIR__ . '/..' . '/srag/librariesnamespacechanger/src/PHP7Backport.php',
         'srag\\LibrariesNamespaceChanger\\RemovePHP72Backport' => __DIR__ . '/..' . '/srag/librariesnamespacechanger/src/RemovePHP72Backport.php',
+        'srag\\LibrariesNamespaceChanger\\UpdatePluginReadme' => __DIR__ . '/..' . '/srag/librariesnamespacechanger/src/UpdatePluginReadme.php',
         'srag\\Plugins\\SrLearningProgressReset\\Job\\Factory' => __DIR__ . '/../..' . '/src/Job/Factory.php',
         'srag\\Plugins\\SrLearningProgressReset\\Job\\Repository' => __DIR__ . '/../..' . '/src/Job/Repository.php',
         'srag\\Plugins\\SrLearningProgressReset\\LearningProgressReset\\Factory' => __DIR__ . '/../..' . '/src/LearningProgressReset/Factory.php',
         'srag\\Plugins\\SrLearningProgressReset\\LearningProgressReset\\Form\\FormBuilder' => __DIR__ . '/../..' . '/src/LearningProgressReset/Form/FormBuilder.php',
         'srag\\Plugins\\SrLearningProgressReset\\LearningProgressReset\\LearningProgressResetJob' => __DIR__ . '/../..' . '/src/LearningProgressReset/LearningProgressResetJob.php',
-        'srag\\Plugins\\SrLearningProgressReset\\LearningProgressReset\\LearningProgressResetSettings' => __DIR__ . '/../..' . '/src/LearningProgressReset/LearningProgressResetSettings.php',
         'srag\\Plugins\\SrLearningProgressReset\\LearningProgressReset\\LearningProgressResetSettingsGUI' => __DIR__ . '/../..' . '/src/LearningProgressReset/class.LearningProgressResetSettingsGUI.php',
         'srag\\Plugins\\SrLearningProgressReset\\LearningProgressReset\\Repository' => __DIR__ . '/../..' . '/src/LearningProgressReset/Repository.php',
+        'srag\\Plugins\\SrLearningProgressReset\\LearningProgressReset\\Settings' => __DIR__ . '/../..' . '/src/LearningProgressReset/Settings.php',
         'srag\\Plugins\\SrLearningProgressReset\\Repository' => __DIR__ . '/../..' . '/src/Repository.php',
         'srag\\Plugins\\SrLearningProgressReset\\Utils\\SrLearningProgressResetTrait' => __DIR__ . '/../..' . '/src/Utils/SrLearningProgressResetTrait.php',
         'srag\\RemovePluginDataConfirm\\SrLearningProgressReset\\BasePluginUninstallTrait' => __DIR__ . '/..' . '/srag/removeplugindataconfirm/src/BasePluginUninstallTrait.php',
