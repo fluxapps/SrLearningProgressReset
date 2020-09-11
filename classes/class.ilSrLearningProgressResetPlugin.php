@@ -4,6 +4,7 @@ require_once __DIR__ . "/../vendor/autoload.php";
 
 use ILIAS\DI\Container;
 use srag\CustomInputGUIs\SrLearningProgressReset\Loader\CustomInputGUIsLoaderDetector;
+use srag\DIC\SrLearningProgressReset\DevTools\DevToolsCtrl;
 use srag\Plugins\SrLearningProgressReset\Utils\SrLearningProgressResetTrait;
 use srag\RemovePluginDataConfirm\SrLearningProgressReset\PluginUninstallTrait;
 
@@ -75,6 +76,8 @@ class ilSrLearningProgressResetPlugin extends ilUserInterfaceHookPlugin
         parent::updateLanguages($a_lang_keys);
 
         $this->installRemovePluginDataConfirmLanguages();
+
+        DevToolsCtrl::installLanguages(self::plugin());
     }
 
 

@@ -42,7 +42,7 @@ class TextAreaInputGUI extends ilTextAreaInputGUI
             'p',
             'br',
             'b',
-            'span',
+            'span'
         ));
         $this->usePurifier(true);
         $this->disableButtons(array(
@@ -59,21 +59,8 @@ class TextAreaInputGUI extends ilTextAreaInputGUI
             'copy',
             'paste',
             'pastetext',
-            'formatselect',
+            'formatselect'
         ));
-    }
-
-
-    /**
-     * @return string
-     */
-    public function render() : string
-    {
-        $tpl = new Template(__DIR__ . '/templates/tpl.text_area_helper.html', false, false);
-        $this->insert($tpl);
-        $tpl->setVariable('INLINE_STYLE', $this->getInlineStyle());
-
-        return self::output()->getHTML($tpl);
     }
 
 
@@ -110,5 +97,18 @@ class TextAreaInputGUI extends ilTextAreaInputGUI
     public function setMaxlength(int $maxlength)/*: void*/
     {
         $this->maxlength = $maxlength;
+    }
+
+
+    /**
+     * @return string
+     */
+    public function render() : string
+    {
+        $tpl = new Template(__DIR__ . '/templates/tpl.text_area_helper.html', false, false);
+        $this->insert($tpl);
+        $tpl->setVariable('INLINE_STYLE', $this->getInlineStyle());
+
+        return self::output()->getHTML($tpl);
     }
 }
