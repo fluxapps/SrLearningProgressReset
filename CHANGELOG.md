@@ -1,5 +1,8 @@
 # Changelog
 
+## [2.0.1]
+- `Ilias7PreWarn`
+
 ## [2.0.0]
 - Second method for get date (JSON server)
 - Set date to today
