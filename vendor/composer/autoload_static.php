@@ -4,25 +4,26 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit43eeff49e1ef55faf3e82924c79dc47e
+class ComposerStaticInit301d063cced253e9444429ef21643e91
 {
     public static $files = array (
         'a858000df660e132873772a2024a10a5' => __DIR__ . '/..' . '/srag/dic/src/PHPVersionChecker.php',
+        '68fcb5cf5770ef4fa848757924ba559f' => __DIR__ . '/..' . '/srag/dic/src/Ilias7PreWarn.php',
     );
 
     public static $prefixLengthsPsr4 = array (
         's' => 
         array (
-            'srag\\RemovePluginDataConfirm\\SrLearningProgressReset\\' => 53,
+            'srag\\RemovePluginDataConfirm\\' => 29,
             'srag\\Plugins\\SrLearningProgressReset\\' => 37,
             'srag\\LibrariesNamespaceChanger\\' => 31,
-            'srag\\DIC\\SrLearningProgressReset\\' => 33,
-            'srag\\CustomInputGUIs\\SrLearningProgressReset\\' => 45,
+            'srag\\DIC\\' => 9,
+            'srag\\CustomInputGUIs\\' => 21,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
-        'srag\\RemovePluginDataConfirm\\SrLearningProgressReset\\' => 
+        'srag\\RemovePluginDataConfirm\\' => 
         array (
             0 => __DIR__ . '/..' . '/srag/removeplugindataconfirm/src',
         ),
@@ -34,11 +35,11 @@ class ComposerStaticInit43eeff49e1ef55faf3e82924c79dc47e
         array (
             0 => __DIR__ . '/..' . '/srag/librariesnamespacechanger/src',
         ),
-        'srag\\DIC\\SrLearningProgressReset\\' => 
+        'srag\\DIC\\' => 
         array (
             0 => __DIR__ . '/..' . '/srag/dic/src',
         ),
-        'srag\\CustomInputGUIs\\SrLearningProgressReset\\' => 
+        'srag\\CustomInputGUIs\\' => 
         array (
             0 => __DIR__ . '/..' . '/srag/custominputguis/src',
         ),
@@ -111,6 +112,7 @@ class ComposerStaticInit43eeff49e1ef55faf3e82924c79dc47e
         'srag\\DIC\\SrLearningProgressReset\\Database\\PdoStatementContextHelper' => __DIR__ . '/..' . '/srag/dic/src/Database/PdoStatementContextHelper.php',
         'srag\\DIC\\SrLearningProgressReset\\DevTools\\DevToolsCtrl' => __DIR__ . '/..' . '/srag/dic/src/DevTools/class.DevToolsCtrl.php',
         'srag\\DIC\\SrLearningProgressReset\\Exception\\DICException' => __DIR__ . '/..' . '/srag/dic/src/Exception/DICException.php',
+        'srag\\DIC\\SrLearningProgressReset\\Ilias7PreWarn' => __DIR__ . '/..' . '/srag/dic/src/Ilias7PreWarn.php',
         'srag\\DIC\\SrLearningProgressReset\\Loader\\AbstractLoaderDetector' => __DIR__ . '/..' . '/srag/dic/src/Loader/AbstractLoaderDetector.php',
         'srag\\DIC\\SrLearningProgressReset\\Output\\Output' => __DIR__ . '/..' . '/srag/dic/src/Output/Output.php',
         'srag\\DIC\\SrLearningProgressReset\\Output\\OutputInterface' => __DIR__ . '/..' . '/srag/dic/src/Output/OutputInterface.php',
@@ -154,9 +156,9 @@ class ComposerStaticInit43eeff49e1ef55faf3e82924c79dc47e
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit43eeff49e1ef55faf3e82924c79dc47e::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit43eeff49e1ef55faf3e82924c79dc47e::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInit43eeff49e1ef55faf3e82924c79dc47e::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit301d063cced253e9444429ef21643e91::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit301d063cced253e9444429ef21643e91::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInit301d063cced253e9444429ef21643e91::$classMap;
 
         }, null, ClassLoader::class);
     }
