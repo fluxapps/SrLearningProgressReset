@@ -197,7 +197,7 @@ abstract class AbstractMethod
 
         $date->setTime(0, 0, 0, 0);
 
-        if (($diff = intval(($time - $date->getTimestamp()) / (60 * 60 * 24))) !== $this->settings->getDays()) {
+        if (($diff = intval(($time - $date->getTimestamp()) / (60 * 60 * 24))) < $this->settings->getDays()) {
             return false;
         }
 
