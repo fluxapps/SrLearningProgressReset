@@ -1,5 +1,8 @@
 # Changelog
 
+## [2.0.2]
+- Fix days don't need to be exactly
+
 ## [2.0.1]
 - `Ilias7PreWarn`
 
