@@ -9,7 +9,8 @@ return array(
     'srag\\RemovePluginDataConfirm\\SrLearningProgressReset\\' => array($vendorDir . '/srag/removeplugindataconfirm/src'),
     'srag\\Plugins\\SrLearningProgressReset\\' => array($baseDir . '/src'),
     'srag\\LibrariesNamespaceChanger\\' => array($vendorDir . '/srag/librariesnamespacechanger/src'),
-    'srag\\DevTools\\' => array($vendorDir . '/srag/devtools/src'),
+    'srag\\GeneratePluginInfosHelper\\SrLearningProgressReset\\' => array($vendorDir . '/srag/generateplugininfoshelper/src'),
+    'srag\\DevTools\\SrLearningProgressReset\\' => array($vendorDir . '/srag/devtools/src'),
     'srag\\DIC\\SrLearningProgressReset\\' => array($vendorDir . '/srag/dic/src'),
     'srag\\CustomInputGUIs\\SrLearningProgressReset\\' => array($vendorDir . '/srag/custominputguis/src'),
 );
