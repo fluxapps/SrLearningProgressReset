@@ -4,7 +4,7 @@ namespace srag\RemovePluginDataConfirm\SrLearningProgressReset;
 
 use ilUIPluginRouterGUI;
 use srag\DIC\SrLearningProgressReset\DICTrait;
-use srag\DIC\SrLearningProgressReset\Util\LibraryLanguageInstaller;
+use srag\LibraryLanguageInstaller\SrLearningProgressReset\LibraryLanguageInstaller;
 
 /**
  * Trait BasePluginUninstallTrait

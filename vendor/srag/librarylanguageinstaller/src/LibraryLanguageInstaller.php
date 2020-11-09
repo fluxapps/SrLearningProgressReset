@@ -1,6 +1,6 @@
 <?php
 
-namespace srag\DIC\SrLearningProgressReset\Util;
+namespace srag\LibraryLanguageInstaller\SrLearningProgressReset;
 
 use ilDBConstants;
 use ilGlobalCache;
@@ -12,7 +12,7 @@ use srag\DIC\SrLearningProgressReset\Plugin\PluginInterface;
 /**
  * Class LibraryLanguageInstaller
  *
- * @package srag\DIC\SrLearningProgressReset\Util
+ * @package srag\LibraryLanguageInstaller\SrLearningProgressReset
  *
  * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */

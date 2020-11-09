@@ -9,7 +9,7 @@ use ilPluginConfigGUI;
 use ilUtil;
 use srag\DIC\SrLearningProgressReset\DICTrait;
 use srag\DIC\SrLearningProgressReset\Plugin\PluginInterface;
-use srag\DIC\SrLearningProgressReset\Util\LibraryLanguageInstaller;
+use srag\LibraryLanguageInstaller\SrLearningProgressReset\LibraryLanguageInstaller;
 
 /**
  * Class DevToolsCtrl
