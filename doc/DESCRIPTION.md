@@ -15,3 +15,6 @@ UDF config:
 ![UDF config 1](./images/udf_config_1.png)
 
 ![UDF config 2](./images/udf_config_2.png)
+
+## EnrolmentDateJsonServerDebug
+[EnrolmentDateJsonServerDebug](../EnrolmentDateJsonServerDebug/README.md)
