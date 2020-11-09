@@ -39,7 +39,7 @@ UDF config:
 ![UDF config 2](./doc/images/udf_config_2.png)
 
 ## EnrolmentDateJsonServerDebug
-[EnrolmentDateJsonServerDebug](../doc/EnrolmentDateJsonServerDebug/README.md)
+[EnrolmentDateJsonServerDebug](../EnrolmentDateJsonServerDebug/README.md)
 
 ## Requirements
 
