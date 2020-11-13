@@ -9,7 +9,7 @@ return array(
     'ilSrLearningProgressResetConfigGUI' => $baseDir . '/classes/class.ilSrLearningProgressResetConfigGUI.php',
     'ilSrLearningProgressResetPlugin' => $baseDir . '/classes/class.ilSrLearningProgressResetPlugin.php',
     'ilSrLearningProgressResetUIHookGUI' => $baseDir . '/classes/class.ilSrLearningProgressResetUIHookGUI.php',
-    'srag\\CustomInputGUIs\\SrLearningProgressReset\\CheckboxInputGUI\\AjaxCheckbox' => $vendorDir . '/srag/custominputguis/src/AjaxCheckbox/AjaxCheckbox.php',
+    'srag\\CustomInputGUIs\\SrLearningProgressReset\\AjaxCheckbox\\AjaxCheckbox' => $vendorDir . '/srag/custominputguis/src/AjaxCheckbox/AjaxCheckbox.php',
     'srag\\CustomInputGUIs\\SrLearningProgressReset\\CheckboxInputGUI\\CheckboxInputGUI' => $vendorDir . '/srag/custominputguis/src/CheckboxInputGUI/CheckboxInputGUI.php',
     'srag\\CustomInputGUIs\\SrLearningProgressReset\\ColorPickerInputGUI\\ColorPickerInputGUI' => $vendorDir . '/srag/custominputguis/src/ColorPickerInputGUI/ColorPickerInputGUI.php',
     'srag\\CustomInputGUIs\\SrLearningProgressReset\\CustomInputGUIs' => $vendorDir . '/srag/custominputguis/src/CustomInputGUIs.php',

@@ -1,5 +1,5 @@
 {
-  "name": "srag/plugins/srlearningprogressreset",
+  "name": "srag/srlearningprogressreset",
   "description": "",
   "version": "2.0.2",
   "extra": {
@@ -44,7 +44,8 @@
       "srag\\Plugins\\SrLearningProgressReset\\": "src/"
     },
     "classmap": [
-      "classes/"
+      "classes/",
+      "src/LearningProgressReset/Settings/class.LearningProgressResetSettingsGUI.php"
     ],
     "files": [
       "vendor/srag/dic/src/PHPVersionChecker.php",

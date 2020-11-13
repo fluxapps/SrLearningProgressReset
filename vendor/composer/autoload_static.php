@@ -7,8 +7,8 @@ namespace Composer\Autoload;
 class ComposerStaticInit301d063cced253e9444429ef21643e91
 {
     public static $files = array (
-        'a858000df660e132873772a2024a10a5' => __DIR__ . '/..' . '/srag/dic/src/PHPVersionChecker.php',
-        '68fcb5cf5770ef4fa848757924ba559f' => __DIR__ . '/..' . '/srag/dic/src/Ilias7PreWarn.php',
+        'a0b2cd48fd128f5d968a92ed558adc11' => __DIR__ . '/..' . '/srag/dic/src/PHPVersionChecker.php',
+        '45f3768a86b0ed4172f7774a256699de' => __DIR__ . '/..' . '/srag/dic/src/Ilias7PreWarn.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -64,7 +64,7 @@ class ComposerStaticInit301d063cced253e9444429ef21643e91
         'ilSrLearningProgressResetConfigGUI' => __DIR__ . '/../..' . '/classes/class.ilSrLearningProgressResetConfigGUI.php',
         'ilSrLearningProgressResetPlugin' => __DIR__ . '/../..' . '/classes/class.ilSrLearningProgressResetPlugin.php',
         'ilSrLearningProgressResetUIHookGUI' => __DIR__ . '/../..' . '/classes/class.ilSrLearningProgressResetUIHookGUI.php',
-        'srag\\CustomInputGUIs\\SrLearningProgressReset\\CheckboxInputGUI\\AjaxCheckbox' => __DIR__ . '/..' . '/srag/custominputguis/src/AjaxCheckbox/AjaxCheckbox.php',
+        'srag\\CustomInputGUIs\\SrLearningProgressReset\\AjaxCheckbox\\AjaxCheckbox' => __DIR__ . '/..' . '/srag/custominputguis/src/AjaxCheckbox/AjaxCheckbox.php',
         'srag\\CustomInputGUIs\\SrLearningProgressReset\\CheckboxInputGUI\\CheckboxInputGUI' => __DIR__ . '/..' . '/srag/custominputguis/src/CheckboxInputGUI/CheckboxInputGUI.php',
         'srag\\CustomInputGUIs\\SrLearningProgressReset\\ColorPickerInputGUI\\ColorPickerInputGUI' => __DIR__ . '/..' . '/srag/custominputguis/src/ColorPickerInputGUI/ColorPickerInputGUI.php',
         'srag\\CustomInputGUIs\\SrLearningProgressReset\\CustomInputGUIs' => __DIR__ . '/..' . '/srag/custominputguis/src/CustomInputGUIs.php',
