@@ -4,6 +4,7 @@ namespace srag\Plugins\SrLearningProgressReset\LearningProgressReset;
 
 use ilCronJob;
 use ilCronJobResult;
+use ilCronManager;
 use ilSrLearningProgressResetPlugin;
 use srag\DIC\SrLearningProgressReset\DICTrait;
 use srag\Plugins\SrLearningProgressReset\Utils\SrLearningProgressResetTrait;
@@ -114,6 +115,8 @@ class LearningProgressResetJob extends ilCronJob
 
         foreach ($methods as $method) {
             $method->resetLearningProgressOfMembers($count_members, $count_learning_progress_reset, $count_set_date_to_today, $count_errors);
+
+            ilCronManager::ping($this->getId());
         }
 
         $result->setStatus($count_errors > 0 ? ilCronJobResult::STATUS_FAIL : ilCronJobResult::STATUS_OK);

@@ -2,7 +2,7 @@
 
 require_once __DIR__ . "/../vendor/autoload.php";
 
-use srag\DIC\SrLearningProgressReset\DevTools\DevToolsCtrl;
+use srag\DevTools\SrLearningProgressReset\DevToolsCtrl;
 use srag\DIC\SrLearningProgressReset\DICTrait;
 use srag\Plugins\SrLearningProgressReset\Utils\SrLearningProgressResetTrait;
 
@@ -11,7 +11,7 @@ use srag\Plugins\SrLearningProgressReset\Utils\SrLearningProgressResetTrait;
  *
  * @author            studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  *
- * @ilCtrl_isCalledBy srag\DIC\SrLearningProgressReset\DevTools\DevToolsCtrl: ilSrLearningProgressResetConfigGUI
+ * @ilCtrl_isCalledBy srag\DevTools\SrLearningProgressReset\DevToolsCtrl: ilSrLearningProgressResetConfigGUI
  */
 class ilSrLearningProgressResetConfigGUI extends ilPluginConfigGUI
 {

@@ -1,5 +1,8 @@
 # Changelog
 
+## [2.0.3]
+- Ping after each object for not ILIAS auto set inactive cron job if during longer
+
 ## [2.0.2]
 - Fix days don't need to be exactly
 

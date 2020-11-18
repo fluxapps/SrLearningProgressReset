@@ -1,6 +1,6 @@
 <?php
 
-namespace srag\CustomInputGUIs\SrLearningProgressReset\CheckboxInputGUI;
+namespace srag\CustomInputGUIs\SrLearningProgressReset\AjaxCheckbox;
 
 use srag\CustomInputGUIs\SrLearningProgressReset\Template\Template;
 use srag\CustomInputGUIs\SrLearningProgressReset\Waiter\Waiter;
@@ -9,7 +9,7 @@ use srag\DIC\SrLearningProgressReset\DICTrait;
 /**
  * Class AjaxCheckbox
  *
- * @package srag\CustomInputGUIs\SrLearningProgressReset\CheckboxInputGUI
+ * @package srag\CustomInputGUIs\SrLearningProgressReset\AjaxCheckbox
  *
  * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */

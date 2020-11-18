@@ -1,6 +1,6 @@
 <?php
 
-namespace srag\DIC\SrLearningProgressReset\DevTools;
+namespace srag\DevTools\SrLearningProgressReset;
 
 use ilAdministrationGUI;
 use ilDBConstants;
@@ -9,12 +9,12 @@ use ilPluginConfigGUI;
 use ilUtil;
 use srag\DIC\SrLearningProgressReset\DICTrait;
 use srag\DIC\SrLearningProgressReset\Plugin\PluginInterface;
-use srag\DIC\SrLearningProgressReset\Util\LibraryLanguageInstaller;
+use srag\LibraryLanguageInstaller\SrLearningProgressReset\LibraryLanguageInstaller;
 
 /**
  * Class DevToolsCtrl
  *
- * @package srag\DIC\SrLearningProgressReset\DevTools
+ * @package srag\DevTools\SrLearningProgressReset
  *
  * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */
@@ -69,7 +69,7 @@ class DevToolsCtrl
      */
     public static function installLanguages(PluginInterface $plugin)/*:void*/
     {
-        LibraryLanguageInstaller::getInstance()->withPlugin($plugin)->withLibraryLanguageDirectory(__DIR__ . "/lang")->updateLanguages();
+        LibraryLanguageInstaller::getInstance()->withPlugin($plugin)->withLibraryLanguageDirectory(__DIR__ . "/../lang")->updateLanguages();
     }
 
 
