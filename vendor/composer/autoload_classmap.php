@@ -58,6 +58,7 @@ return array(
     'srag\\CustomInputGUIs\\SrLearningProgressReset\\ViewControlModeUI\\ViewControlModeUI' => $vendorDir . '/srag/custominputguis/src/ViewControlModeUI/ViewControlModeUI.php',
     'srag\\CustomInputGUIs\\SrLearningProgressReset\\Waiter\\Waiter' => $vendorDir . '/srag/custominputguis/src/Waiter/Waiter.php',
     'srag\\CustomInputGUIs\\SrLearningProgressReset\\WeekdayInputGUI\\WeekdayInputGUI' => $vendorDir . '/srag/custominputguis/src/WeekdayInputGUI/WeekdayInputGUI.php',
+    'srag\\DIC\\SrLearningProgressReset\\Cron\\FixUITemplateInCronContext' => $vendorDir . '/srag/dic/src/Cron/FixUITemplateInCronContext.php',
     'srag\\DIC\\SrLearningProgressReset\\DICStatic' => $vendorDir . '/srag/dic/src/DICStatic.php',
     'srag\\DIC\\SrLearningProgressReset\\DICStaticInterface' => $vendorDir . '/srag/dic/src/DICStaticInterface.php',
     'srag\\DIC\\SrLearningProgressReset\\DICTrait' => $vendorDir . '/srag/dic/src/DICTrait.php',
