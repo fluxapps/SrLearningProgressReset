@@ -8,7 +8,6 @@ class ComposerStaticInit301d063cced253e9444429ef21643e91
 {
     public static $files = array (
         'a0b2cd48fd128f5d968a92ed558adc11' => __DIR__ . '/..' . '/srag/dic/src/PHPVersionChecker.php',
-        '45f3768a86b0ed4172f7774a256699de' => __DIR__ . '/..' . '/srag/dic/src/Ilias7PreWarn.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -127,7 +126,6 @@ class ComposerStaticInit301d063cced253e9444429ef21643e91
         'srag\\DIC\\SrLearningProgressReset\\Database\\PdoContextHelper' => __DIR__ . '/..' . '/srag/dic/src/Database/PdoContextHelper.php',
         'srag\\DIC\\SrLearningProgressReset\\Database\\PdoStatementContextHelper' => __DIR__ . '/..' . '/srag/dic/src/Database/PdoStatementContextHelper.php',
         'srag\\DIC\\SrLearningProgressReset\\Exception\\DICException' => __DIR__ . '/..' . '/srag/dic/src/Exception/DICException.php',
-        'srag\\DIC\\SrLearningProgressReset\\Ilias7PreWarn' => __DIR__ . '/..' . '/srag/dic/src/Ilias7PreWarn.php',
         'srag\\DIC\\SrLearningProgressReset\\Loader\\AbstractLoaderDetector' => __DIR__ . '/..' . '/srag/dic/src/Loader/AbstractLoaderDetector.php',
         'srag\\DIC\\SrLearningProgressReset\\Output\\Output' => __DIR__ . '/..' . '/srag/dic/src/Output/Output.php',
         'srag\\DIC\\SrLearningProgressReset\\Output\\OutputInterface' => __DIR__ . '/..' . '/srag/dic/src/Output/OutputInterface.php',

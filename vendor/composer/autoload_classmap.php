@@ -72,7 +72,6 @@ return array(
     'srag\\DIC\\SrLearningProgressReset\\Database\\PdoContextHelper' => $vendorDir . '/srag/dic/src/Database/PdoContextHelper.php',
     'srag\\DIC\\SrLearningProgressReset\\Database\\PdoStatementContextHelper' => $vendorDir . '/srag/dic/src/Database/PdoStatementContextHelper.php',
     'srag\\DIC\\SrLearningProgressReset\\Exception\\DICException' => $vendorDir . '/srag/dic/src/Exception/DICException.php',
-    'srag\\DIC\\SrLearningProgressReset\\Ilias7PreWarn' => $vendorDir . '/srag/dic/src/Ilias7PreWarn.php',
     'srag\\DIC\\SrLearningProgressReset\\Loader\\AbstractLoaderDetector' => $vendorDir . '/srag/dic/src/Loader/AbstractLoaderDetector.php',
     'srag\\DIC\\SrLearningProgressReset\\Output\\Output' => $vendorDir . '/srag/dic/src/Output/Output.php',
     'srag\\DIC\\SrLearningProgressReset\\Output\\OutputInterface' => $vendorDir . '/srag/dic/src/Output/OutputInterface.php',
