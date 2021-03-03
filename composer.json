@@ -1,6 +1,6 @@
 {
   "name": "srag/srlearningprogressreset",
-  "description": "",
+  "description": "Auto reset learning process",
   "version": "2.0.3",
   "extra": {
     "ilias_plugin": {
