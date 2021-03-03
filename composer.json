@@ -1,23 +1,27 @@
 {
   "name": "srag/srlearningprogressreset",
-  "description": "",
-  "version": "2.0.3",
+  "description": "Auto reset learning process",
+  "version": "2.0.4",
   "extra": {
     "ilias_plugin": {
       "id": "srleprre",
       "ilias_min_version": "5.4.0",
       "ilias_max_version": "6.999",
       "name": "SrLearningProgressReset",
-      "slot": "Services/UIComponent/UserInterfaceHook"
+      "slot": "Services/UIComponent/UserInterfaceHook",
+      "supports_cli_setup": true
     },
-    "generate_plugin_readme_template": "SRAG_ILIAS_PLUGIN"
+    "generate_plugin_readme_template": "SRAG_ILIAS_PLUGIN",
+    "long_description_template": "src/LONG_DESCRIPTION.md"
   },
   "type": "project",
   "keywords": [
-    "ILIAS",
-    "Plugin"
+    "ilias",
+    "interface",
+    "plugin",
+    "user"
   ],
-  "homepage": "https://github.com/studer-raimann/SrLearningProgressReset",
+  "homepage": "https://github.com/fluxfw/SrLearningProgressReset",
   "license": "GPL-3.0-only",
   "authors": [
     {
@@ -48,8 +52,7 @@
       "src/LearningProgressReset/Settings/class.LearningProgressResetSettingsGUI.php"
     ],
     "files": [
-      "vendor/srag/dic/src/PHPVersionChecker.php",
-      "vendor/srag/dic/src/Ilias7PreWarn.php"
+      "vendor/srag/dic/src/PHPVersionChecker.php"
     ]
   },
   "config": {

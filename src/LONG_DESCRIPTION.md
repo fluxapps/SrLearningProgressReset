@@ -1,4 +1,4 @@
-You need also to install [SrLearningProgressResetCron](https://github.com/studer-raimann/SrLearningProgressResetCron).
+You need to install the [SrLearningProgressResetCron](https://github.com/studer-raimann/SrLearningProgressResetCron) plugin
 
 Resets the learning progress of users who have reached the days
 
@@ -15,4 +15,5 @@ UDF config:
 ![UDF config 2](../doc/images/udf_config_2.png)
 
 ## EnrolmentDateJsonServerDebug
+
 [EnrolmentDateJsonServerDebug](../EnrolmentDateJsonServerDebug/README.md)

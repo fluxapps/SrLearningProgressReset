@@ -2,7 +2,7 @@
 
 # SrLearningProgressReset ILIAS Plugin
 
-
+Auto reset learning process
 
 This is an OpenSource project by studer + raimann ag, CH-Burgdorf (https://studer-raimann.ch)
 
@@ -20,14 +20,14 @@ Start at your ILIAS root directory
 ```bash
 mkdir -p Customizing/global/plugins/Services/UIComponent/UserInterfaceHook
 cd Customizing/global/plugins/Services/UIComponent/UserInterfaceHook
-git clone https://github.com/studer-raimann/SrLearningProgressReset.git SrLearningProgressReset
+git clone https://github.com/fluxfw/SrLearningProgressReset.git SrLearningProgressReset
 ```
 
 Update, activate and config the plugin in the ILIAS Plugin Administration
 
 ## Description
 
-You need also to install [SrLearningProgressResetCron](https://github.com/studer-raimann/SrLearningProgressResetCron).
+You need to install the [SrLearningProgressResetCron](https://github.com/studer-raimann/SrLearningProgressResetCron) plugin
 
 Resets the learning progress of users who have reached the days
 
@@ -44,12 +44,14 @@ UDF config:
 ![UDF config 2](./doc/images/udf_config_2.png)
 
 ## EnrolmentDateJsonServerDebug
+
 [EnrolmentDateJsonServerDebug](../EnrolmentDateJsonServerDebug/README.md)
 
 ## Adjustment suggestions
 
-* External users can report suggestions and bugs at https://plugins.studer-raimann.ch/goto.php?target=uihk_srsu_PLPR
-* Adjustment suggestions by pull requests via github
+You can report bugs or suggestions at https://plugins.studer-raimann.ch/goto.php?target=uihk_srsu_PLPR
+
+There is no guarantee this can be fixed or implemented
 
 ## ILIAS Plugin SLA
 

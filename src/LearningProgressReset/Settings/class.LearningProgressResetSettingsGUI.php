@@ -2,6 +2,8 @@
 
 namespace srag\Plugins\SrLearningProgressReset\LearningProgressReset\Settings;
 
+require_once __DIR__ . "/../../../vendor/autoload.php";
+
 use ilLearningProgressGUI;
 use ilObjectGUIFactory;
 use ilRepositoryGUI;
