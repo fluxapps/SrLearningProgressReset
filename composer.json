@@ -1,7 +1,7 @@
 {
   "name": "srag/srlearningprogressreset",
   "description": "Auto reset learning process",
-  "version": "2.0.4",
+  "version": "2.0.5",
   "extra": {
     "ilias_plugin": {
       "id": "srleprre",
@@ -11,7 +11,7 @@
       "slot": "Services/UIComponent/UserInterfaceHook",
       "supports_cli_setup": true
     },
-    "generate_plugin_readme_template": "SRAG_ILIAS_PLUGIN",
+    "generate_plugin_readme_template": "ILIAS_PLUGIN",
     "long_description_template": "src/LONG_DESCRIPTION.md"
   },
   "type": "project",
@@ -31,9 +31,6 @@
       "role": "Developer"
     }
   ],
-  "support": {
-    "issues": "https://plugins.studer-raimann.ch/goto.php?target=uihk_srsu_PLPR"
-  },
   "require": {
     "php": ">=7.0",
     "srag/custominputguis": ">=0.1.0",
@@ -66,6 +63,9 @@
       "srag\\LibrariesNamespaceChanger\\PHP72Backport::PHP72Backport",
       "srag\\GeneratePluginInfosHelper\\SrLearningProgressReset\\GeneratePluginPhpAndXml::generatePluginPhpAndXml",
       "srag\\GeneratePluginInfosHelper\\SrLearningProgressReset\\GeneratePluginReadme::generatePluginReadme"
+    ],
+    "update-version": [
+      "srag\\GeneratePluginInfosHelper\\SrLearningProgressReset\\UpdateVersion::updateVersion"
     ]
   }
 }

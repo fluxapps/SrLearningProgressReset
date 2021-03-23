@@ -6,7 +6,7 @@ Add to your ILIAS `docker-compose.yml`:
 ```yaml
 ...
   enrolment_date_json_server_debug:
-    image: enrolment_date_json_server_debug
+    image: enrolment_date_json_server_debug:latest
     volumes:
       - ./enrolment_date_json_server_debug:/enrolment_date_json_server_debug
     restart: always
