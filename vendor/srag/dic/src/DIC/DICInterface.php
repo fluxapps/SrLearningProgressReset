@@ -74,8 +74,6 @@ use srag\DIC\SrLearningProgressReset\Exception\DICException;
  * Interface DICInterface
  *
  * @package srag\DIC\SrLearningProgressReset\DIC
- *
- * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */
 interface DICInterface
 {

@@ -12,8 +12,6 @@ use srag\DIC\SrLearningProgressReset\Version\VersionInterface;
  * Interface DICStaticInterface
  *
  * @package srag\DIC\SrLearningProgressReset
- *
- * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */
 interface DICStaticInterface
 {

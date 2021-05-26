@@ -8,8 +8,6 @@ use srag\Plugins\SrLearningProgressReset\Repository;
  * Trait SrLearningProgressResetTrait
  *
  * @package srag\Plugins\SrLearningProgressReset\Utils
- *
- * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */
 trait SrLearningProgressResetTrait
 {

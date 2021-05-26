@@ -12,8 +12,6 @@ use srag\DIC\SrLearningProgressReset\DICTrait;
  * Class AbstractLoaderDetector
  *
  * @package srag\DIC\SrLearningProgressReset\Loader
- *
- * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */
 abstract class AbstractLoaderDetector implements Loader
 {

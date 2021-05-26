@@ -6,8 +6,6 @@ namespace srag\DIC\SrLearningProgressReset\Version;
  * Class Version
  *
  * @package srag\DIC\SrLearningProgressReset\Version
- *
- * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */
 final class Version implements VersionInterface
 {

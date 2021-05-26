@@ -18,8 +18,6 @@ use srag\Plugins\SrLearningProgressReset\Utils\SrLearningProgressResetTrait;
  *
  * @package           srag\Plugins\SrLearningProgressReset\LearningProgressReset\Settings
  *
- * @author            studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
- *
  * @ilCtrl_isCalledBy srag\Plugins\SrLearningProgressReset\LearningProgressReset\Settings\LearningProgressResetSettingsGUI: ilUIPluginRouterGUI
  */
 class LearningProgressResetSettingsGUI
