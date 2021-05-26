@@ -12,8 +12,6 @@ use srag\Plugins\SrLearningProgressReset\Utils\SrLearningProgressResetTrait;
  * Class Factory
  *
  * @package srag\Plugins\SrLearningProgressReset\Job
- *
- * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */
 final class Factory
 {

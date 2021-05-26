@@ -11,8 +11,6 @@ use srag\Plugins\SrLearningProgressReset\Utils\SrLearningProgressResetTrait;
  * Class Repository
  *
  * @package srag\Plugins\SrLearningProgressReset\LearningProgressReset\Settings\Method
- *
- * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */
 final class Repository
 {

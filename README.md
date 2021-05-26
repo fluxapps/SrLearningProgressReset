@@ -4,8 +4,6 @@
 
 Auto reset learning process
 
-This is an OpenSource project by studer + raimann ag, CH-Burgdorf (https://studer-raimann.ch)
-
 This project is licensed under the GPL-3.0-only license
 
 ## Requirements
@@ -20,14 +18,14 @@ Start at your ILIAS root directory
 ```bash
 mkdir -p Customizing/global/plugins/Services/UIComponent/UserInterfaceHook
 cd Customizing/global/plugins/Services/UIComponent/UserInterfaceHook
-git clone https://github.com/fluxfw/SrLearningProgressReset.git SrLearningProgressReset
+git clone https://github.com/fluxapps/SrLearningProgressReset.git SrLearningProgressReset
 ```
 
 Update, activate and config the plugin in the ILIAS Plugin Administration
 
 ## Description
 
-You need to install the [SrLearningProgressResetCron](https://github.com/studer-raimann/SrLearningProgressResetCron) plugin
+You need to install the [SrLearningProgressResetCron](https://github.com/fluxapps/SrLearningProgressResetCron) plugin
 
 Resets the learning progress of users who have reached the days
 

@@ -1,4 +1,4 @@
-You need to install the [SrLearningProgressResetCron](https://github.com/studer-raimann/SrLearningProgressResetCron) plugin
+You need to install the [SrLearningProgressResetCron](https://github.com/fluxapps/SrLearningProgressResetCron) plugin
 
 Resets the learning progress of users who have reached the days
 

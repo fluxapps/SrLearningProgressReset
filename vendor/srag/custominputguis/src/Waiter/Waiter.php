@@ -12,8 +12,6 @@ use srag\DIC\SrLearningProgressReset\Version\PluginVersionParameter;
  * Class Waiter
  *
  * @package srag\CustomInputGUIs\SrLearningProgressReset\Waiter
- *
- * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */
 final class Waiter
 {

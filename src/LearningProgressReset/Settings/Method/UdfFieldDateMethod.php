@@ -8,8 +8,6 @@ use ilObjUser;
  * Class UdfFieldDateMethod
  *
  * @package srag\Plugins\SrLearningProgressReset\LearningProgressReset\Settings\Method
- *
- * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */
 class UdfFieldDateMethod extends AbstractMethod
 {

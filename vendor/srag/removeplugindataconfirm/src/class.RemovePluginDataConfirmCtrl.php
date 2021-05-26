@@ -17,8 +17,6 @@ use srag\DIC\SrLearningProgressReset\DICTrait;
  *
  * @package           srag\RemovePluginDataConfirm\SrLearningProgressReset
  *
- * @author            studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
- *
  * @ilCtrl_isCalledBy srag\RemovePluginDataConfirm\SrLearningProgressReset\RemovePluginDataConfirmCtrl: ilUIPluginRouterGUI
  */
 class RemovePluginDataConfirmCtrl

@@ -8,8 +8,6 @@ use srag\Plugins\SrLearningProgressReset\Utils\SrLearningProgressResetTrait;
 
 /**
  * Class ilSrLearningProgressResetUIHookGUI
- *
- * @author studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */
 class ilSrLearningProgressResetUIHookGUI extends ilUIHookPluginGUI
 {

@@ -12,8 +12,6 @@ use srag\DIC\SrLearningProgressReset\Version\PluginVersionParameter;
  * Class AjaxCheckbox
  *
  * @package srag\CustomInputGUIs\SrLearningProgressReset\AjaxCheckbox
- *
- * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */
 class AjaxCheckbox
 {
