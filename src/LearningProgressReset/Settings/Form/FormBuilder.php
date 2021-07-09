@@ -158,7 +158,7 @@ class FormBuilder extends AbstractFormBuilder
     /**
      * @inheritDoc
      */
-    protected function storeData(array $data)/* : void*/
+    protected function storeData(array $data) : void
     {
         switch (strval($data["method"][0])) {
             case UdfFieldDateMethod::ID;

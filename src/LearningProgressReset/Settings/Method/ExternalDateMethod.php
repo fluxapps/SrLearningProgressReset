@@ -87,7 +87,7 @@ class ExternalDateMethod extends AbstractMethod
      *
      * @return string|null
      */
-    private function doRequest(string $rest_url, array $headers, $post_data = null)/* : ?string*/
+    private function doRequest(string $rest_url, array $headers, $post_data = null) : ?string
     {
         $curlConnection = null;
 

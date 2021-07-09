@@ -55,7 +55,7 @@ class LearningProgressResetSettingsGUI
     /**
      * @param int $obj_ref_id
      */
-    public static function addTabs(int $obj_ref_id)/* : void*/
+    public static function addTabs(int $obj_ref_id) : void
     {
         if (self::srLearningProgressReset()->learningProgressReset()->hasAccess(self::dic()->user()->getId(), $obj_ref_id)) {
             self::dic()->ctrl()->setParameterByClass(self::class, self::GET_PARAM_REF_ID, $obj_ref_id);
@@ -71,7 +71,7 @@ class LearningProgressResetSettingsGUI
     /**
      *
      */
-    public function executeCommand()/* : void*/
+    public function executeCommand() : void
     {
         $this->obj_ref_id = intval(filter_input(INPUT_GET, self::GET_PARAM_REF_ID));
 
@@ -109,7 +109,7 @@ class LearningProgressResetSettingsGUI
     /**
      *
      */
-    protected function back()/* : void*/
+    protected function back() : void
     {
         self::dic()->ctrl()->saveParameterByClass(ilRepositoryGUI::class, self::GET_PARAM_REF_ID);
 
@@ -125,7 +125,7 @@ class LearningProgressResetSettingsGUI
     /**
      *
      */
-    protected function editSettings()/* : void*/
+    protected function editSettings() : void
     {
         self::dic()->tabs()->activateTab(self::TAB_SETTINGS);
 
@@ -138,7 +138,7 @@ class LearningProgressResetSettingsGUI
     /**
      *
      */
-    protected function setTabs()/* : void*/
+    protected function setTabs() : void
     {
         self::dic()->tabs()->clearTargets();
 
@@ -154,7 +154,7 @@ class LearningProgressResetSettingsGUI
     /**
      *
      */
-    protected function updateSettings()/* : void*/
+    protected function updateSettings() : void
     {
         self::dic()->tabs()->activateTab(self::TAB_SETTINGS);
 
