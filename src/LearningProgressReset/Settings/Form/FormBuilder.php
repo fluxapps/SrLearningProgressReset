@@ -113,44 +113,25 @@ class FormBuilder extends AbstractFormBuilder
                 (intval(DEVMODE) === 1 ? self::plugin()->translate(ExternalDateMethod::KEY . "_url_debug_info", LearningProgressResetSettingsGUI::LANG_MODULE)
                     : ""))->withRequired(true)
         ];
-        if (self::version()->is6()) {
-            $method = self::dic()->ui()->factory()->input()->field()->switchableGroup([
-                DisabledMethod::ID     => self::dic()
-                    ->ui()
-                    ->factory()
-                    ->input()
-                    ->field()
-                    ->group($disabled_files, self::plugin()->translate(DisabledMethod::KEY, LearningProgressResetSettingsGUI::LANG_MODULE)),
-                UdfFieldDateMethod::ID => self::dic()
-                    ->ui()
-                    ->factory()
-                    ->input()
-                    ->field()
-                    ->group($udf_field_fields, self::plugin()->translate(UdfFieldDateMethod::KEY, LearningProgressResetSettingsGUI::LANG_MODULE)),
-                ExternalDateMethod::ID => self::dic()->ui()->factory()->input()->field()->group($external_date_fields,
-                    self::plugin()->translate(ExternalDateMethod::KEY, LearningProgressResetSettingsGUI::LANG_MODULE) . "<br>" . self::plugin()
-                        ->translate(ExternalDateMethod::KEY . "_info", LearningProgressResetSettingsGUI::LANG_MODULE))->withByline(self::plugin()
-                    ->translate(ExternalDateMethod::KEY . "_info", LearningProgressResetSettingsGUI::LANG_MODULE))
-                // TODO `withByline` not work in ILIAS 6 group (radio), so temporary in label
-            ], self::plugin()->translate("method", LearningProgressResetSettingsGUI::LANG_MODULE))->withRequired(true);
-        } else {
-            $method = self::dic()
+        $method = self::dic()->ui()->factory()->input()->field()->switchableGroup([
+            DisabledMethod::ID     => self::dic()
                 ->ui()
                 ->factory()
                 ->input()
                 ->field()
-                ->radio(self::plugin()->translate("method", LearningProgressResetSettingsGUI::LANG_MODULE))
-                ->withRequired(true)
-                ->withOption(DisabledMethod::ID,
-                    self::plugin()->translate(DisabledMethod::KEY, LearningProgressResetSettingsGUI::LANG_MODULE), null, $disabled_files)
-                ->withOption(UdfFieldDateMethod::ID,
-                    self::plugin()->translate(UdfFieldDateMethod::KEY, LearningProgressResetSettingsGUI::LANG_MODULE), null,
-                    $udf_field_fields)
-                ->withOption(ExternalDateMethod::ID,
-                    self::plugin()->translate(ExternalDateMethod::KEY, LearningProgressResetSettingsGUI::LANG_MODULE),
-                    self::plugin()->translate(ExternalDateMethod::KEY . "_info", LearningProgressResetSettingsGUI::LANG_MODULE),
-                    $external_date_fields);
-        }
+                ->group($disabled_files, self::plugin()->translate(DisabledMethod::KEY, LearningProgressResetSettingsGUI::LANG_MODULE)),
+            UdfFieldDateMethod::ID => self::dic()
+                ->ui()
+                ->factory()
+                ->input()
+                ->field()
+                ->group($udf_field_fields, self::plugin()->translate(UdfFieldDateMethod::KEY, LearningProgressResetSettingsGUI::LANG_MODULE)),
+            ExternalDateMethod::ID => self::dic()->ui()->factory()->input()->field()->group($external_date_fields,
+                self::plugin()->translate(ExternalDateMethod::KEY, LearningProgressResetSettingsGUI::LANG_MODULE) . "<br>" . self::plugin()
+                    ->translate(ExternalDateMethod::KEY . "_info", LearningProgressResetSettingsGUI::LANG_MODULE))->withByline(self::plugin()
+                ->translate(ExternalDateMethod::KEY . "_info", LearningProgressResetSettingsGUI::LANG_MODULE))
+            // TODO `withByline` not work in ILIAS 6 group (radio), so temporary in label
+        ], self::plugin()->translate("method", LearningProgressResetSettingsGUI::LANG_MODULE))->withRequired(true);
 
         $fields = [
             "method"                        => $method,
@@ -179,36 +160,19 @@ class FormBuilder extends AbstractFormBuilder
      */
     protected function storeData(array $data)/* : void*/
     {
-        if (self::version()->is6()) {
-            switch (strval($data["method"][0])) {
-                case UdfFieldDateMethod::ID;
-                    $this->settings->setMethod(UdfFieldDateMethod::ID);
-                    $this->settings->setUdfFieldDate(strval($data["method"][1][UdfFieldDateMethod::KEY]));
-                    break;
-                case ExternalDateMethod::ID;
-                    $this->settings->setMethod(ExternalDateMethod::ID);
-                    $this->settings->setExternalDateUrl(strval($data["method"][1][ExternalDateMethod::KEY . "_url"]));
-                    break;
-                case DisabledMethod::ID:
-                default:
-                    $this->settings->setMethod(DisabledMethod::ID);
-                    break;
-            }
-        } else {
-            switch (strval($data["method"]["value"])) {
-                case UdfFieldDateMethod::ID;
-                    $this->settings->setMethod(UdfFieldDateMethod::ID);
-                    $this->settings->setUdfFieldDate(strval($data["method"]["group_values"][UdfFieldDateMethod::KEY]));
-                    break;
-                case ExternalDateMethod::ID;
-                    $this->settings->setMethod(ExternalDateMethod::ID);
-                    $this->settings->setExternalDateUrl(strval($data["method"]["group_values"][ExternalDateMethod::KEY . "_url"]));
-                    break;
-                case DisabledMethod::ID:
-                default:
-                    $this->settings->setMethod(DisabledMethod::ID);
-                    break;
-            }
+        switch (strval($data["method"][0])) {
+            case UdfFieldDateMethod::ID;
+                $this->settings->setMethod(UdfFieldDateMethod::ID);
+                $this->settings->setUdfFieldDate(strval($data["method"][1][UdfFieldDateMethod::KEY]));
+                break;
+            case ExternalDateMethod::ID;
+                $this->settings->setMethod(ExternalDateMethod::ID);
+                $this->settings->setExternalDateUrl(strval($data["method"][1][ExternalDateMethod::KEY . "_url"]));
+                break;
+            case DisabledMethod::ID:
+            default:
+                $this->settings->setMethod(DisabledMethod::ID);
+                break;
         }
         $this->settings->setDays(intval($data["days"]));
         $this->settings->setSetDateToTodayAfterReset(boolval($data["set_date_to_today_after_reset"]));

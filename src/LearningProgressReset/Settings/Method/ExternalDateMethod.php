@@ -3,7 +3,6 @@
 namespace srag\Plugins\SrLearningProgressReset\LearningProgressReset\Settings\Method;
 
 use ilCurlConnection;
-use ilProxySettings;
 
 /**
  * Class ExternalDateMethod
@@ -123,21 +122,6 @@ class ExternalDateMethod extends AbstractMethod
         $curlConnection = new ilCurlConnection($url);
 
         $curlConnection->init();
-
-        if (!self::version()->is6()) {
-            $proxy = ilProxySettings::_getInstance();
-            if ($proxy->isActive()) {
-                $curlConnection->setOpt(CURLOPT_HTTPPROXYTUNNEL, true);
-
-                if (!empty($proxy->getHost())) {
-                    $curlConnection->setOpt(CURLOPT_PROXY, $proxy->getHost());
-                }
-
-                if (!empty($proxy->getPort())) {
-                    $curlConnection->setOpt(CURLOPT_PROXYPORT, $proxy->getPort());
-                }
-            }
-        }
 
         $headers["User-Agent"] = "ILIAS " . self::version()->getILIASVersion();
         $curlConnection->setOpt(CURLOPT_HTTPHEADER, array_map(function (string $key, string $value) : string {
