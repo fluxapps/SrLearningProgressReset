@@ -59,7 +59,6 @@
   "scripts": {
     "pre-autoload-dump": [
       "srag\\LibrariesNamespaceChanger\\LibrariesNamespaceChanger::rewriteLibrariesNamespaces",
-      "srag\\LibrariesNamespaceChanger\\PHP72Backport::PHP72Backport",
       "srag\\GeneratePluginInfosHelper\\SrLearningProgressReset\\GeneratePluginPhpAndXml::generatePluginPhpAndXml",
       "srag\\GeneratePluginInfosHelper\\SrLearningProgressReset\\GeneratePluginReadme::generatePluginReadme"
     ],
