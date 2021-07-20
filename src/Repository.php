@@ -51,7 +51,7 @@ final class Repository
     /**
      *
      */
-    public function dropTables()/* : void*/
+    public function dropTables() : void
     {
         $this->jobs()->dropTables();
         $this->learningProgressReset()->dropTables();
@@ -61,7 +61,7 @@ final class Repository
     /**
      *
      */
-    public function installTables()/* : void*/
+    public function installTables() : void
     {
         $this->jobs()->installTables();
         $this->learningProgressReset()->installTables();

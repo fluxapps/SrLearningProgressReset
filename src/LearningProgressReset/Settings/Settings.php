@@ -126,7 +126,7 @@ class Settings extends ActiveRecord
     /**
      * @param int $days
      */
-    public function setDays(int $days)/* : void*/
+    public function setDays(int $days) : void
     {
         $this->days = $days;
     }
@@ -144,7 +144,7 @@ class Settings extends ActiveRecord
     /**
      * @param string $external_date_url
      */
-    public function setExternalDateUrl(string $external_date_url)/* : void*/
+    public function setExternalDateUrl(string $external_date_url) : void
     {
         $this->external_date_url = $external_date_url;
     }
@@ -171,7 +171,7 @@ class Settings extends ActiveRecord
     /**
      * @param int $obj_id
      */
-    public function setObjId(int $obj_id)/* : void*/
+    public function setObjId(int $obj_id) : void
     {
         $this->obj_id = $obj_id;
     }
@@ -211,7 +211,7 @@ class Settings extends ActiveRecord
     /**
      * @param bool $set_date_to_today_after_reset
      */
-    public function setSetDateToTodayAfterReset(bool $set_date_to_today_after_reset)/* : void*/
+    public function setSetDateToTodayAfterReset(bool $set_date_to_today_after_reset) : void
     {
         $this->set_date_to_today_after_reset = $set_date_to_today_after_reset;
     }
@@ -220,7 +220,7 @@ class Settings extends ActiveRecord
     /**
      * @param int $method
      */
-    public function setMethod(int $method)/* : void*/
+    public function setMethod(int $method) : void
     {
         $this->enabled = $method;
     }
@@ -229,7 +229,7 @@ class Settings extends ActiveRecord
     /**
      * @param int $udf_field_date
      */
-    public function setUdfFieldDate(int $udf_field_date)/* : void*/
+    public function setUdfFieldDate(int $udf_field_date) : void
     {
         $this->udf_field = $udf_field_date;
     }

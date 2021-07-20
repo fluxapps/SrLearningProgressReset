@@ -77,7 +77,7 @@ abstract class AbstractMethod
      * @param int $count_set_date_to_today
      * @param int $count_errors
      */
-    public function resetLearningProgressOfMembers(int &$count_members, int &$count_learning_progress_reset, int &$count_set_date_to_today, int &$count_errors)/* : void*/
+    public function resetLearningProgressOfMembers(int &$count_members, int &$count_learning_progress_reset, int &$count_set_date_to_today, int &$count_errors) : void
     {
         try {
             foreach (
@@ -132,7 +132,7 @@ abstract class AbstractMethod
      * @param int $count_set_date_to_today
      * @param int $count_errors
      */
-    protected function resetLearningProgress(int $user_id, int &$count_learning_progress_reset, int &$count_set_date_to_today, int &$count_errors)/* : void*/
+    protected function resetLearningProgress(int $user_id, int &$count_learning_progress_reset, int &$count_set_date_to_today, int &$count_errors) : void
     {
         try {
             if (!$this->shouldResetLearningProgress($user_id)) {
@@ -160,7 +160,7 @@ abstract class AbstractMethod
      *
      * @throws Throwable
      */
-    protected function resetLearningProgressObject(int $user_id)/* : void*/
+    protected function resetLearningProgressObject(int $user_id) : void
     {
         ilLPStatus::writeStatus($this->settings->getObjId(), $user_id, ilLPStatus::LP_STATUS_NOT_ATTEMPTED);
     }
