@@ -10,7 +10,6 @@ return array(
     'srag\\Plugins\\SrLearningProgressReset\\' => array($baseDir . '/src'),
     'srag\\LibraryLanguageInstaller\\SrLearningProgressReset\\' => array($vendorDir . '/srag/librarylanguageinstaller/src'),
     'srag\\LibrariesNamespaceChanger\\' => array($vendorDir . '/srag/librariesnamespacechanger/src'),
-    'srag\\GeneratePluginInfosHelper\\SrLearningProgressReset\\' => array($vendorDir . '/srag/generateplugininfoshelper/src'),
     'srag\\DevTools\\SrLearningProgressReset\\' => array($vendorDir . '/srag/devtools/src'),
     'srag\\DIC\\SrLearningProgressReset\\' => array($vendorDir . '/srag/dic/src'),
     'srag\\CustomInputGUIs\\SrLearningProgressReset\\' => array($vendorDir . '/srag/custominputguis/src'),

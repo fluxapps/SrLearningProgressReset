@@ -17,7 +17,6 @@ class ComposerStaticInit301d063cced253e9444429ef21643e91
             'srag\\Plugins\\SrLearningProgressReset\\' => 37,
             'srag\\LibraryLanguageInstaller\\SrLearningProgressReset\\' => 54,
             'srag\\LibrariesNamespaceChanger\\' => 31,
-            'srag\\GeneratePluginInfosHelper\\SrLearningProgressReset\\' => 55,
             'srag\\DevTools\\SrLearningProgressReset\\' => 38,
             'srag\\DIC\\SrLearningProgressReset\\' => 33,
             'srag\\CustomInputGUIs\\SrLearningProgressReset\\' => 45,
@@ -40,10 +39,6 @@ class ComposerStaticInit301d063cced253e9444429ef21643e91
         'srag\\LibrariesNamespaceChanger\\' => 
         array (
             0 => __DIR__ . '/..' . '/srag/librariesnamespacechanger/src',
-        ),
-        'srag\\GeneratePluginInfosHelper\\SrLearningProgressReset\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/srag/generateplugininfoshelper/src',
         ),
         'srag\\DevTools\\SrLearningProgressReset\\' => 
         array (
@@ -130,9 +125,6 @@ class ComposerStaticInit301d063cced253e9444429ef21643e91
         'srag\\DIC\\SrLearningProgressReset\\Version\\Version' => __DIR__ . '/..' . '/srag/dic/src/Version/Version.php',
         'srag\\DIC\\SrLearningProgressReset\\Version\\VersionInterface' => __DIR__ . '/..' . '/srag/dic/src/Version/VersionInterface.php',
         'srag\\DevTools\\SrLearningProgressReset\\DevToolsCtrl' => __DIR__ . '/..' . '/srag/devtools/src/class.DevToolsCtrl.php',
-        'srag\\GeneratePluginInfosHelper\\SrLearningProgressReset\\GeneratePluginPhpAndXml' => __DIR__ . '/..' . '/srag/generateplugininfoshelper/src/GeneratePluginPhpAndXml.php',
-        'srag\\GeneratePluginInfosHelper\\SrLearningProgressReset\\GeneratePluginReadme' => __DIR__ . '/..' . '/srag/generateplugininfoshelper/src/GeneratePluginReadme.php',
-        'srag\\GeneratePluginInfosHelper\\SrLearningProgressReset\\UpdateVersion' => __DIR__ . '/..' . '/srag/generateplugininfoshelper/src/UpdateVersion.php',
         'srag\\LibrariesNamespaceChanger\\LibrariesNamespaceChanger' => __DIR__ . '/..' . '/srag/librariesnamespacechanger/src/LibrariesNamespaceChanger.php',
         'srag\\LibraryLanguageInstaller\\SrLearningProgressReset\\LibraryLanguageInstaller' => __DIR__ . '/..' . '/srag/librarylanguageinstaller/src/LibraryLanguageInstaller.php',
         'srag\\Plugins\\SrLearningProgressReset\\Job\\Factory' => __DIR__ . '/../..' . '/src/Job/Factory.php',
